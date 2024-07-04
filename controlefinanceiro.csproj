@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< Updated upstream
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6">
@@ -20,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-=======
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -33,7 +31,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
->>>>>>> Stashed changes
   </ItemGroup>
 
 </Project>
