@@ -25,7 +25,7 @@ namespace controlefinanceiro
                 context.Database.Migrate();
             }
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new frmLogin());
         }
     }
 }
