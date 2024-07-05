@@ -7,10 +7,7 @@ namespace controlefinanceiro.Data
     {
         public AppDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionsBuilder.UseSqlite("Data Source=controle_financeiro.db");
-
-            return new AppDbContext(optionsBuilder.Options);
+            return new AppDbContext();
         }
     }
 }
