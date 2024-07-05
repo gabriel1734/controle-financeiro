@@ -33,7 +33,7 @@
             txtUsername = new TextBox();
             panel1 = new Panel();
             panel2 = new Panel();
-            textBox1 = new TextBox();
+            txtPassword = new TextBox();
             label1 = new Label();
             label2 = new Label();
             purpleLabel1 = new MeusControles.PurpleLabel();
@@ -62,6 +62,7 @@
             btnLogin.TextAlign = ContentAlignment.BottomLeft;
             btnLogin.TextColor = Color.Transparent;
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // txtUsername
             // 
@@ -70,7 +71,7 @@
             txtUsername.ForeColor = Color.FromArgb(149, 88, 225);
             txtUsername.Location = new Point(9, 11);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(175, 15);
+            txtUsername.Size = new Size(175, 18);
             txtUsername.TabIndex = 5;
             // 
             // panel1
@@ -88,22 +89,22 @@
             // 
             panel2.BackColor = Color.Transparent;
             panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(txtPassword);
             panel2.ForeColor = Color.Transparent;
             panel2.Location = new Point(82, 209);
             panel2.Name = "panel2";
             panel2.Size = new Size(190, 40);
             panel2.TabIndex = 7;
             // 
-            // textBox1
+            // txtPassword
             // 
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Consolas", 9F, FontStyle.Bold);
-            textBox1.ForeColor = Color.FromArgb(149, 88, 225);
-            textBox1.Location = new Point(9, 11);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(175, 15);
-            textBox1.TabIndex = 5;
+            txtPassword.BorderStyle = BorderStyle.None;
+            txtPassword.Font = new Font("Consolas", 9F, FontStyle.Bold);
+            txtPassword.ForeColor = Color.FromArgb(149, 88, 225);
+            txtPassword.Location = new Point(9, 11);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(175, 18);
+            txtPassword.TabIndex = 5;
             // 
             // label1
             // 
@@ -113,7 +114,7 @@
             label1.ForeColor = Color.FromArgb(149, 88, 225);
             label1.Location = new Point(105, 22);
             label1.Name = "label1";
-            label1.Size = new Size(142, 51);
+            label1.Size = new Size(177, 64);
             label1.TabIndex = 8;
             label1.Text = "Login";
             // 
@@ -125,7 +126,7 @@
             label2.ForeColor = Color.FromArgb(149, 88, 225);
             label2.Location = new Point(82, 116);
             label2.Name = "label2";
-            label2.Size = new Size(90, 22);
+            label2.Size = new Size(116, 28);
             label2.TabIndex = 9;
             label2.Text = "Username";
             // 
@@ -136,7 +137,7 @@
             purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
             purpleLabel1.Location = new Point(82, 186);
             purpleLabel1.Name = "purpleLabel1";
-            purpleLabel1.Size = new Size(90, 22);
+            purpleLabel1.Size = new Size(116, 28);
             purpleLabel1.TabIndex = 11;
             purpleLabel1.Text = "Password";
             // 
@@ -152,9 +153,9 @@
             // 
             // frmLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 14F);
+            AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 420);
+            ClientSize = new Size(798, 412);
             Controls.Add(panel3);
             Controls.Add(purpleLabel1);
             Controls.Add(label2);
@@ -187,5 +188,6 @@
         private Label label2;
         private MeusControles.PurpleLabel purpleLabel1;
         private Panel panel3;
+        private TextBox txtPassword;
     }
 }
