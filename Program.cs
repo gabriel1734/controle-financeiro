@@ -1,6 +1,8 @@
 using controlefinanceiro.Data;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using controlefinanceiro.Controllers;
+using controlefinanceiro.Views;
 
 
 namespace controlefinanceiro
@@ -15,17 +17,21 @@ namespace controlefinanceiro
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            var serviceProvider = new ServiceCollection()
-           .AddDbContext<AppDbContext>(options =>
-               options.UseSqlite("Data Source=controle_financeiro.db"))
-           .BuildServiceProvider();
 
-            using (var context = serviceProvider.GetService<AppDbContext>())
+            if (!.CountIfExist())
             {
-                context.Database.Migrate();
+                Application.Run(new frmRegister());
             }
+            else
+            {
+                Application.Run(new frmLogin());
+            }
+            
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmLogin());
+            
+
+            
+
         }
     }
 }
