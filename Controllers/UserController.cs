@@ -38,6 +38,16 @@ namespace controlefinanceiro.Controllers
                 db.SaveChanges();
             }
         }
+        public static Usuario? getUser(string username, string password)
+        {
+            password = HashHelper.GetMd5Hash(password + "pao de batata");
+            using (AppDbContext db = new AppDbContext())
+            {
+                return db.Usuarios.AsQueryable()
+                    .Where(u => u.Username == username && u.Senha == password)
+                    .FirstOrDefault();
+            }
+        }
 
     }
 }
