@@ -18,7 +18,7 @@ namespace controlefinanceiro
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
 
-            if (!UsuarioController.CountIfExist())
+            if (!.CountIfExist())
             {
                 Application.Run(new frmRegister());
             }

@@ -20,7 +20,8 @@ namespace controlefinanceiro.Controllers
             using(AppDbContext db = new AppDbContext())
             {
 
-                if (db.Usuarios.AsQueryable().Count() > 0) { 
+                if (db.Usuarios.AsQueryable().Count() > 0)
+                {
                     return true;
                 }
             }
@@ -35,17 +36,6 @@ namespace controlefinanceiro.Controllers
             {         
                 db.Usuarios.Add(user);
                 db.SaveChanges();
-            }
-        }
-
-        public static Usuario? getUser(string username, string password)
-        {
-            password = HashHelper.GetMd5Hash(password + "pao de batata");
-            using (AppDbContext db = new AppDbContext())
-            {
-                return db.Usuarios.AsQueryable()
-                    .Where(u => u.Username == username && u.Senha == password)
-                    .FirstOrDefault();
             }
         }
 
