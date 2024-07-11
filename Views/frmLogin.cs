@@ -1,3 +1,5 @@
+using controlefinanceiro.Controllers;
+
 namespace controlefinanceiro
 {
     public partial class frmLogin : Form
@@ -5,6 +7,18 @@ namespace controlefinanceiro
         public frmLogin()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
+            Models.Usuario user = UsuarioController.getUser(username, password);
+
+            MessageBox.Show($"Welcome {user.Username}!!!");
+            this.Hide();
+            //frmHome home = new frmHome(user);
         }
     }
 }

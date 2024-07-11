@@ -10,12 +10,12 @@ namespace controlefinanceiro.Data
         public DbSet<Transacao> Transacoes { get; set; }
         public DbSet<Saldo> Saldos { get; set; }
 
-        public AppDbContext()         
+
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
             optionsBuilder.UseSqlite("Data Source=controle_financeiro.db");
         }
-        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
