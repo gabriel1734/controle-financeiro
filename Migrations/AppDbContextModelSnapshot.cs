@@ -81,6 +81,9 @@ namespace controlefinanceiro.Migrations
                     b.Property<int>("UsuarioId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<decimal>("Valor")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");

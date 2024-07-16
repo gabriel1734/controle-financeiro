@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace controlefinanceiro.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -46,7 +46,7 @@ namespace controlefinanceiro.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
                     CategoriaId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Valor = table.Column<decimal>(type: "DECIMAL", nullable: false),
+                    Valor = table.Column<decimal>(type: "TEXT", nullable: false),
                     Data = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Descricao = table.Column<string>(type: "TEXT", nullable: false),
                     Tipo = table.Column<string>(type: "TEXT", maxLength: 10, nullable: false)

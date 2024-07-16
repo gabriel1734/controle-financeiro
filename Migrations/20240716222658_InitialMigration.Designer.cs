@@ -11,8 +11,8 @@ using controlefinanceiro.Data;
 namespace controlefinanceiro.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240702234225_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240716222658_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -83,6 +83,9 @@ namespace controlefinanceiro.Migrations
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("Valor")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
