@@ -34,10 +34,10 @@
             panel1 = new Panel();
             panel2 = new Panel();
             txtPassword = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            purpleLabel1 = new MeusControles.PurpleLabel();
+            lblLogin = new Label();
+            lblUsername = new Label();
             panel3 = new Panel();
+            lblPassword = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -71,7 +71,7 @@
             txtUsername.ForeColor = Color.FromArgb(149, 88, 225);
             txtUsername.Location = new Point(9, 11);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(175, 18);
+            txtUsername.Size = new Size(175, 15);
             txtUsername.TabIndex = 5;
             // 
             // panel1
@@ -103,43 +103,32 @@
             txtPassword.ForeColor = Color.FromArgb(149, 88, 225);
             txtPassword.Location = new Point(9, 11);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(175, 18);
+            txtPassword.Size = new Size(175, 15);
             txtPassword.TabIndex = 5;
             // 
-            // label1
+            // lblLogin
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Consolas", 32F, FontStyle.Bold);
-            label1.ForeColor = Color.FromArgb(149, 88, 225);
-            label1.Location = new Point(105, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(177, 64);
-            label1.TabIndex = 8;
-            label1.Text = "Login";
+            lblLogin.AutoSize = true;
+            lblLogin.BackColor = Color.Transparent;
+            lblLogin.Font = new Font("Consolas", 32F, FontStyle.Bold);
+            lblLogin.ForeColor = Color.FromArgb(149, 88, 225);
+            lblLogin.Location = new Point(105, 22);
+            lblLogin.Name = "lblLogin";
+            lblLogin.Size = new Size(142, 51);
+            lblLogin.TabIndex = 8;
+            lblLogin.Text = "Login";
             // 
-            // label2
+            // lblUsername
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Consolas", 14F, FontStyle.Bold);
-            label2.ForeColor = Color.FromArgb(149, 88, 225);
-            label2.Location = new Point(82, 116);
-            label2.Name = "label2";
-            label2.Size = new Size(116, 28);
-            label2.TabIndex = 9;
-            label2.Text = "Username";
-            // 
-            // purpleLabel1
-            // 
-            purpleLabel1.AutoSize = true;
-            purpleLabel1.Font = new Font("Consolas", 14F, FontStyle.Bold);
-            purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel1.Location = new Point(82, 186);
-            purpleLabel1.Name = "purpleLabel1";
-            purpleLabel1.Size = new Size(116, 28);
-            purpleLabel1.TabIndex = 11;
-            purpleLabel1.Text = "Password";
+            lblUsername.AutoSize = true;
+            lblUsername.BackColor = Color.Transparent;
+            lblUsername.Font = new Font("Consolas", 14F, FontStyle.Bold);
+            lblUsername.ForeColor = Color.FromArgb(149, 88, 225);
+            lblUsername.Location = new Point(82, 116);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(90, 22);
+            lblUsername.TabIndex = 9;
+            lblUsername.Text = "Username";
             // 
             // panel3
             // 
@@ -151,15 +140,27 @@
             panel3.Size = new Size(352, 449);
             panel3.TabIndex = 12;
             // 
+            // lblPassword
+            // 
+            lblPassword.AutoSize = true;
+            lblPassword.BackColor = Color.Transparent;
+            lblPassword.Font = new Font("Consolas", 14F, FontStyle.Bold);
+            lblPassword.ForeColor = Color.FromArgb(149, 88, 225);
+            lblPassword.Location = new Point(82, 184);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(90, 22);
+            lblPassword.TabIndex = 13;
+            lblPassword.Text = "Password";
+            // 
             // frmLogin
             // 
-            AutoScaleDimensions = new SizeF(8F, 18F);
+            AutoScaleDimensions = new SizeF(7F, 14F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(798, 412);
+            ClientSize = new Size(800, 420);
+            Controls.Add(lblPassword);
             Controls.Add(panel3);
-            Controls.Add(purpleLabel1);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblUsername);
+            Controls.Add(lblLogin);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(btnLogin);
@@ -184,10 +185,10 @@
         private Panel panel1;
         private Panel panel2;
         private TextBox textBox1;
-        private Label label1;
-        private Label label2;
-        private MeusControles.PurpleLabel purpleLabel1;
+        private Label lblLogin;
+        private Label lblUsername;
         private Panel panel3;
         private TextBox txtPassword;
+        private Label lblPassword;
     }
 }

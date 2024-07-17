@@ -18,7 +18,8 @@ namespace controlefinanceiro
 
             MessageBox.Show($"Welcome {user.Username}!!!");
             this.Hide();
-            //frmHome home = new frmHome(user);
+            Views.frmHome home = new Views.frmHome(user);
+            home.Show();
         }
     }
 }
