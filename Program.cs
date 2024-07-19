@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using controlefinanceiro.Controllers;
 using controlefinanceiro.Views;
 using System;
+using ControleFinanceiro.Controllers;
 
 
 namespace controlefinanceiro
@@ -29,15 +30,18 @@ namespace controlefinanceiro
             }
 
 
-            if (!UsuarioController.CountIfExist())
+            /*if (!UsuarioController.CountIfExist())
             {
                 Application.Run(new frmRegister());
             }
             else
             {
                 Application.Run(new frmLogin());
-            }
+            }*/
+
             
+
+            Application.Run(new frmRelatorio());
             ApplicationConfiguration.Initialize();
             
 

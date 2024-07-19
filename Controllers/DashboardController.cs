@@ -6,50 +6,98 @@ using System.Linq;
 
 namespace ControleFinanceiro.Controllers
 {
-    public class DashboardController
+    internal class DashboardController
     {
-        private readonly AppDbContext _context;
-
-        public DashboardController()
+        public static bool ExistemTransacoesDoDia(DateTime data)
         {
-            _context = new AppDbContext();
+            using (AppDbContext db = new AppDbContext())
+            {
+                return db.Transacoes.Any(t => t.Data.Date == data.Date);
+            }
         }
 
-        public DateTime GetCurrentDate()
+        public static List<Transacao> ObterTransacoesDoDia(DateTime data)
         {
-            return DateTime.Now;
+            using (AppDbContext db = new AppDbContext())
+            {
+                return db.Transacoes.Where(t => t.Data.Date == data.Date).ToList();
+            }
         }
 
-        public List<Transacao> GetMovimentacoesDoDia(DateTime date)
+        public static decimal CalcularTotalTransacoesDoDia(DateTime data)
         {
-            return _context.Transacoes.Where(m => m.Data.Date == date.Date).ToList();
+            var transacoes = ObterTransacoesDoDia(data);
+            return transacoes.Sum(t => t.Valor);
         }
 
-        public decimal GetTotalMovimentacoesDoDia(DateTime date)
+        public static decimal ObterSaldoInicial(int usuarioId)
         {
-            var movimentacoes = GetMovimentacoesDoDia(date);
-            return movimentacoes.Sum(m => m.Valor);
+            using (AppDbContext db = new AppDbContext())
+            {
+                var saldo = db.Saldos.FirstOrDefault(s => s.UsuarioId == usuarioId);
+                return saldo != null ? saldo.ValorSaldo : 0;
+            }
         }
 
-        public decimal GetSaldoInicial(int usuarioId)
+        public static decimal ObterSaldoDoDia(int usuarioId, DateTime data)
         {
-            var saldo = _context.Saldos.FirstOrDefault(s => s.UsuarioId == usuarioId);
-            return saldo != null ? saldo.ValorSaldo : 0;
-        }
-
-        public decimal GetSaldoDoDia(int usuarioId, DateTime date)
-        {
-            decimal saldoInicial = GetSaldoInicial(usuarioId);
-            var movimentacoes = GetMovimentacoesDoDia(date);
-            decimal saldoDoDia = saldoInicial + movimentacoes.Sum(m => m.Valor);
+            decimal saldoInicial = ObterSaldoInicial(usuarioId);
+            var transacoes = ObterTransacoesDoDia(data);
+            decimal saldoDoDia = saldoInicial + transacoes.Sum(t => t.Valor);
             return saldoDoDia;
         }
 
-        public decimal GetValorAtualDisponivel(int usuarioId)
+        public static decimal ObterValorAtualDisponivel(int usuarioId)
         {
-            var saldoInicial = GetSaldoInicial(usuarioId);
-            var totalMovimentacoes = _context.Transacoes.Where(t => t.UsuarioId == usuarioId).Sum(t => t.Valor);
-            return saldoInicial + totalMovimentacoes;
+            decimal saldoInicial = ObterSaldoInicial(usuarioId);
+            using (AppDbContext db = new AppDbContext())
+            {
+                var totalTransacoes = db.Transacoes.Where(t => t.UsuarioId == usuarioId).Sum(t => t.Valor);
+                return saldoInicial + totalTransacoes;
+            }
+        }
+
+        public static void AdicionarCategoria(string nome)
+        {
+            using (AppDbContext db = new AppDbContext())
+            {
+                var categoria = new Categoria
+                {
+                    Nome = nome
+                };
+
+                db.Categorias.Add(categoria);
+                db.SaveChanges();
+            }
+        }
+
+        public static List<Categoria> ListarCategorias()
+        {
+            using (AppDbContext db = new AppDbContext())
+            {
+                return db.Categorias.ToList();
+            }
+        }
+
+        public static bool RemoverCategoria(int id)
+        {
+            using (AppDbContext db = new AppDbContext())
+            {
+                bool existemTransacoes = db.Transacoes.Any(t => t.CategoriaId == id);
+                if (existemTransacoes)
+                {
+                    throw new System.Exception("There is a transaction with this category");
+                }
+
+                var categoria = db.Categorias.Find(id);
+                if (categoria != null)
+                {
+                    db.Categorias.Remove(categoria);
+                    db.SaveChanges();
+                    return true; // Categoria removida com sucesso
+                }
+                throw new System.Exception("Category not found!");
+            }
         }
     }
 }

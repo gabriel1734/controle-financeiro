@@ -28,7 +28,7 @@
     <Compile Update="Views\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\frmHome.cs">
+    <Compile Update="Views\frmRelatorio.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
