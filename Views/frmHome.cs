@@ -1,4 +1,6 @@
-﻿using controlefinanceiro.Models;
+﻿using controlefinanceiro.Controllers;
+using controlefinanceiro.Models;
+using ControleFinanceiro.Controllers;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -14,9 +16,12 @@ namespace controlefinanceiro.Views
 {
     public partial class frmHome : Form
     {
+        private Usuario user;
         public frmHome(Models.Usuario user)
         {
             InitializeComponent();
+            loadHome();
+            this.user = user;
         }
         bool manageExpand = false;
 
@@ -53,7 +58,6 @@ namespace controlefinanceiro.Views
         }
 
         bool sidebarExpand = false;
-        private Usuario user;
 
         private void sidebarTransition_Tick(object sender, EventArgs e)
         {
@@ -79,8 +83,11 @@ namespace controlefinanceiro.Views
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Views.frmAddTransaction addTransaction = new Views.frmAddTransaction(user);
-            addTransaction.Show();
+            using(Views.frmAddTransaction addTransaction = new Views.frmAddTransaction(user))
+            {
+                addTransaction.ShowDialog();
+                loadHome();
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -91,13 +98,44 @@ namespace controlefinanceiro.Views
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Views.frmCategories categories = new Views.frmCategories(user);
+            Views.frmCategories categories = new Views.frmCategories();
             categories.Show();
         }
 
         private void frmHome_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void loadHome()
+        {
+            List<Transacao> transacoes = DashboardController.ObterTransacoesDoDia(DateTime.Now);
+
+            TotalBalance.Text = SaldoController.ObterSaldo().ToString();
+            DayBalance.Text = SaldoController.ObterSaldoPorDia(DateTime.Now).ToString();
+
+            mainTransactions.Rows.Clear();
+            mainTransactions.Columns.Clear();
+
+            mainTransactions.Columns.Add("Id", "Id");
+            mainTransactions.Columns.Add("Categoria", "Categoria");
+            mainTransactions.Columns.Add("Valor", "Valor");
+            mainTransactions.Columns.Add("Data", "Data");
+            mainTransactions.Columns.Add("Descrição", "Descrição");
+            mainTransactions.Columns.Add("Tipo", "Tipo");
+
+
+            foreach (var transacao in transacoes)
+            {
+                mainTransactions.Rows.Add(
+                    transacao.Id,
+                    transacao.Categoria.Nome,
+                    transacao.Valor.ToString("C"),
+                    transacao.Data.ToString("dd/MM/yyyy"),
+                    transacao.Descricao,
+                    transacao.Tipo
+                );
+            }
         }
     }
 }

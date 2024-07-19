@@ -5,6 +5,7 @@ using controlefinanceiro.Controllers;
 using controlefinanceiro.Views;
 using System;
 using ControleFinanceiro.Controllers;
+using controlefinanceiro.Models;
 
 
 namespace controlefinanceiro
@@ -39,13 +40,10 @@ namespace controlefinanceiro
                 Application.Run(new frmLogin());
             }*/
 
-            
+           Usuario usuario = UsuarioController.getUser("g", "123");
+           Application.Run(new frmHome(usuario));
 
-            Application.Run(new frmRelatorio());
-            ApplicationConfiguration.Initialize();
-            
 
-            
 
         }
     }

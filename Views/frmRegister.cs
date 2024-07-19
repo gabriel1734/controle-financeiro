@@ -1,4 +1,5 @@
-﻿using System;
+﻿using controlefinanceiro.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,8 +26,10 @@ namespace controlefinanceiro.Views
             
             Controllers.UsuarioController.storeUser(username,password,confirmPassword);
             MessageBox.Show("User registered successfully.!!!");
+            Models.Usuario user = UsuarioController.getUser(username, password);
             this.Hide();
-            //frmHome home = new frmHome(user);
+            frmHome home = new(user);
+            home.Show();
         }
     }
 }

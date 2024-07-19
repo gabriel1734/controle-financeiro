@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
+﻿using controlefinanceiro.Models;
+using ControleFinanceiro.Controllers;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,9 +18,86 @@ namespace controlefinanceiro.Views
         public frmAddTransaction(Models.Usuario user)
         {
             InitializeComponent();
+            configureDatePickers();
+            configureForm(user);
+            //InitializeTextBox();
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            DashboardController.AdicionarTransacao(
+                    Convert.ToInt32(userID.Text),
+                    Convert.ToInt32(category.SelectedValue.ToString()),
+                    Convert.ToDecimal(valueTransaction.Text),
+                    DateTransaction.Value,
+                    descriptionTransaction.Text,
+                    typeTransaction.SelectedValue.ToString()
+                );
+            MessageBox.Show("Transaction Successfully Added");
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+
+        }
+
+        private void configureDatePickers()
+        {
+            DateTransaction.Value = DateTime.Now;
+            DateTransaction.Format = DateTimePickerFormat.Custom;
+            DateTransaction.CustomFormat = "dd/MM/yyyy";
+        }
+
+        private void configureForm(Usuario usuario)
+        {
+
+            List<Models.Categoria> categoria = DashboardController.ListarCategorias();
+            category.DataSource = categoria;
+            category.DisplayMember = "Nome";
+            category.ValueMember = "Id";
+
+            userID.Text = usuario.Id.ToString();
+            List<string> tipos = new List<string> { "Entrada", "Saída" };
+            typeTransaction.DataSource = tipos;
+
+        }
+
+        private void InitializeTextBox()
+        {
+            valueTransaction = new ReaLTaiizor.Controls.BigTextBox();
+            valueTransaction.Location = new Point(20, 20);
+            valueTransaction.KeyPress += new KeyPressEventHandler(valueTransaction_KeyPress);
+
+            this.Controls.Add(valueTransaction);
+        }
+
+        private void valueTransaction_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '-')
+            {
+                e.Handled = true;
+
+
+                if (e.KeyChar == '.' && textBox.Text.IndexOf('.') > -1)
+                {
+                    e.Handled = true;
+                }
+
+
+                if (e.KeyChar == '-' && textBox.SelectionStart != 0)
+                {
+                    e.Handled = true;
+                }
+
+
+                if (e.KeyChar == '-' && textBox.Text.Contains("-"))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void idTransaction_TextChanged(object sender, EventArgs e)
         {
 
         }

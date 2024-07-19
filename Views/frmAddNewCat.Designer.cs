@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             purpleLabel1 = new MeusControles.PurpleLabel();
-            bigTextBox2 = new ReaLTaiizor.Controls.BigTextBox();
+            categoria = new ReaLTaiizor.Controls.BigTextBox();
             btnAddNew = new Button();
             SuspendLayout();
             // 
@@ -38,48 +38,52 @@
             purpleLabel1.AutoSize = true;
             purpleLabel1.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel1.Location = new Point(12, 9);
+            purpleLabel1.Location = new Point(14, 12);
             purpleLabel1.Name = "purpleLabel1";
-            purpleLabel1.Size = new Size(45, 19);
+            purpleLabel1.Size = new Size(54, 23);
             purpleLabel1.TabIndex = 2;
             purpleLabel1.Text = "Name";
             // 
-            // bigTextBox2
+            // categoria
             // 
-            bigTextBox2.BackColor = Color.Transparent;
-            bigTextBox2.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bigTextBox2.ForeColor = Color.FromArgb(149, 88, 225);
-            bigTextBox2.Image = null;
-            bigTextBox2.Location = new Point(63, 9);
-            bigTextBox2.MaxLength = 32767;
-            bigTextBox2.Multiline = false;
-            bigTextBox2.Name = "bigTextBox2";
-            bigTextBox2.ReadOnly = false;
-            bigTextBox2.Size = new Size(188, 41);
-            bigTextBox2.TabIndex = 7;
-            bigTextBox2.TextAlignment = HorizontalAlignment.Left;
-            bigTextBox2.UseSystemPasswordChar = false;
+            categoria.BackColor = Color.Transparent;
+            categoria.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            categoria.ForeColor = Color.FromArgb(149, 88, 225);
+            categoria.Image = null;
+            categoria.Location = new Point(72, 12);
+            categoria.Margin = new Padding(3, 4, 3, 4);
+            categoria.MaxLength = 32767;
+            categoria.Multiline = false;
+            categoria.Name = "categoria";
+            categoria.ReadOnly = false;
+            categoria.Size = new Size(215, 45);
+            categoria.TabIndex = 7;
+            categoria.TextAlignment = HorizontalAlignment.Left;
+            categoria.UseSystemPasswordChar = false;
             // 
             // btnAddNew
             // 
             btnAddNew.BackColor = Color.FromArgb(149, 88, 225);
             btnAddNew.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddNew.ForeColor = Color.White;
-            btnAddNew.Location = new Point(124, 56);
+            btnAddNew.Location = new Point(142, 75);
+            btnAddNew.Margin = new Padding(3, 4, 3, 4);
             btnAddNew.Name = "btnAddNew";
-            btnAddNew.Size = new Size(127, 42);
+            btnAddNew.Size = new Size(145, 56);
             btnAddNew.TabIndex = 24;
             btnAddNew.Text = "Add Category";
             btnAddNew.UseVisualStyleBackColor = false;
+            btnAddNew.Click += btnAddNew_Click;
             // 
             // frmAddNewCat
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(260, 104);
+            ClientSize = new Size(297, 139);
             Controls.Add(btnAddNew);
-            Controls.Add(bigTextBox2);
+            Controls.Add(categoria);
             Controls.Add(purpleLabel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmAddNewCat";
             Text = "frmAddNewCat";
             Load += frmAddNewCat_Load;
@@ -90,7 +94,7 @@
         #endregion
 
         private MeusControles.PurpleLabel purpleLabel1;
-        private ReaLTaiizor.Controls.BigTextBox bigTextBox2;
+        private ReaLTaiizor.Controls.BigTextBox categoria;
         private Button btnAddNew;
     }
 }

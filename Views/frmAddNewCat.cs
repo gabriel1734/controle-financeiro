@@ -1,4 +1,5 @@
 ﻿using controlefinanceiro.Models;
+using ControleFinanceiro.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace controlefinanceiro.Views
 {
     public partial class frmAddNewCat : Form
     {
-        public frmAddNewCat(Usuario user)
+        public frmAddNewCat()
         {
             InitializeComponent();
         }
@@ -21,6 +22,13 @@ namespace controlefinanceiro.Views
         private void frmAddNewCat_Load(object sender, EventArgs e)
         {
 
+        }
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            DashboardController.AdicionarCategoria(categoria.Text);
+            MessageBox.Show("Category Added Successfully ");
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

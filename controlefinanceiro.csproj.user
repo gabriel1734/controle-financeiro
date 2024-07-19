@@ -19,6 +19,9 @@
     <Compile Update="Views\frmEditTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\frmRegister.cs">
       <SubType>Form</SubType>
     </Compile>

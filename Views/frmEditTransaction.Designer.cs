@@ -28,58 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            mainDataTransactions = new DataGridView();
             purpleLabel1 = new MeusControles.PurpleLabel();
             poisonDateTime1 = new ReaLTaiizor.Controls.PoisonDateTime();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)mainDataTransactions).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // mainDataTransactions
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 66);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(425, 201);
-            dataGridView1.TabIndex = 0;
+            mainDataTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            mainDataTransactions.Location = new Point(14, 88);
+            mainDataTransactions.Margin = new Padding(3, 4, 3, 4);
+            mainDataTransactions.Name = "mainDataTransactions";
+            mainDataTransactions.RowHeadersWidth = 51;
+            mainDataTransactions.Size = new Size(486, 268);
+            mainDataTransactions.TabIndex = 0;
             // 
             // purpleLabel1
             // 
             purpleLabel1.AutoSize = true;
             purpleLabel1.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel1.Location = new Point(12, 9);
+            purpleLabel1.Location = new Point(14, 12);
             purpleLabel1.Name = "purpleLabel1";
-            purpleLabel1.Size = new Size(144, 19);
+            purpleLabel1.Size = new Size(175, 23);
             purpleLabel1.TabIndex = 1;
             purpleLabel1.Text = "Filter by Date:";
             // 
             // poisonDateTime1
             // 
-            poisonDateTime1.Location = new Point(12, 31);
-            poisonDateTime1.MinimumSize = new Size(0, 29);
+            poisonDateTime1.Location = new Point(14, 41);
+            poisonDateTime1.Margin = new Padding(3, 4, 3, 4);
+            poisonDateTime1.MinimumSize = new Size(0, 30);
             poisonDateTime1.Name = "poisonDateTime1";
-            poisonDateTime1.Size = new Size(232, 29);
+            poisonDateTime1.Size = new Size(265, 30);
             poisonDateTime1.TabIndex = 21;
             // 
             // frmEditTransaction
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(461, 279);
+            ClientSize = new Size(527, 372);
             Controls.Add(poisonDateTime1);
             Controls.Add(purpleLabel1);
-            Controls.Add(dataGridView1);
+            Controls.Add(mainDataTransactions);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmEditTransaction";
             Text = "frmEditTransaction";
             Load += frmEditTransaction_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)mainDataTransactions).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView mainDataTransactions;
         private MeusControles.PurpleLabel purpleLabel1;
         private ReaLTaiizor.Controls.PoisonDateTime poisonDateTime1;
     }
