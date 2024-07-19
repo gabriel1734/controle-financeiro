@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
             panel1 = new Panel();
             nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
-            pictureBox1 = new PictureBox();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            panel2 = new Panel();
+            btnSidebar = new PictureBox();
+            sidebarContainer = new FlowLayoutPanel();
+            dboardPanel = new Panel();
             btnDboard = new Button();
             manageContainer = new FlowLayoutPanel();
-            panel4 = new Panel();
+            managePanel = new Panel();
             btnManage = new Button();
             panel6 = new Panel();
             button5 = new Button();
@@ -45,29 +45,37 @@
             button6 = new Button();
             panel8 = new Panel();
             button7 = new Button();
-            panel3 = new Panel();
+            reportPanel = new Panel();
             btnReport = new Button();
-            panel5 = new Panel();
+            logoutPanel = new Panel();
             btnLogout = new Button();
             manageTransition = new System.Windows.Forms.Timer(components);
+            sidebarTransition = new System.Windows.Forms.Timer(components);
+            dataGridView1 = new DataGridView();
+            purpleLabel1 = new MeusControles.PurpleLabel();
+            purpleLabel2 = new MeusControles.PurpleLabel();
+            bigTextBox1 = new ReaLTaiizor.Controls.BigTextBox();
+            bigTextBox2 = new ReaLTaiizor.Controls.BigTextBox();
+            purpleLabel3 = new MeusControles.PurpleLabel();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            flowLayoutPanel1.SuspendLayout();
-            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnSidebar).BeginInit();
+            sidebarContainer.SuspendLayout();
+            dboardPanel.SuspendLayout();
             manageContainer.SuspendLayout();
-            panel4.SuspendLayout();
+            managePanel.SuspendLayout();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
             panel8.SuspendLayout();
-            panel3.SuspendLayout();
-            panel5.SuspendLayout();
+            reportPanel.SuspendLayout();
+            logoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(149, 88, 225);
             panel1.Controls.Add(nightControlBox1);
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(btnSidebar);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -97,36 +105,37 @@
             nightControlBox1.Size = new Size(139, 31);
             nightControlBox1.TabIndex = 1;
             // 
-            // pictureBox1
+            // btnSidebar
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(35, 35);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            btnSidebar.Image = (Image)resources.GetObject("btnSidebar.Image");
+            btnSidebar.Location = new Point(3, 3);
+            btnSidebar.Name = "btnSidebar";
+            btnSidebar.Size = new Size(35, 35);
+            btnSidebar.SizeMode = PictureBoxSizeMode.CenterImage;
+            btnSidebar.TabIndex = 1;
+            btnSidebar.TabStop = false;
+            btnSidebar.Click += btnSidebar_Click;
             // 
-            // flowLayoutPanel1
+            // sidebarContainer
             // 
-            flowLayoutPanel1.BackColor = Color.FromArgb(149, 88, 225);
-            flowLayoutPanel1.Controls.Add(panel2);
-            flowLayoutPanel1.Controls.Add(manageContainer);
-            flowLayoutPanel1.Controls.Add(panel3);
-            flowLayoutPanel1.Controls.Add(panel5);
-            flowLayoutPanel1.Dock = DockStyle.Left;
-            flowLayoutPanel1.Location = new Point(0, 44);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(200, 406);
-            flowLayoutPanel1.TabIndex = 1;
+            sidebarContainer.BackColor = Color.FromArgb(149, 88, 225);
+            sidebarContainer.Controls.Add(dboardPanel);
+            sidebarContainer.Controls.Add(manageContainer);
+            sidebarContainer.Controls.Add(reportPanel);
+            sidebarContainer.Controls.Add(logoutPanel);
+            sidebarContainer.Dock = DockStyle.Left;
+            sidebarContainer.Location = new Point(0, 44);
+            sidebarContainer.Name = "sidebarContainer";
+            sidebarContainer.Size = new Size(0, 406);
+            sidebarContainer.TabIndex = 1;
             // 
-            // panel2
+            // dboardPanel
             // 
-            panel2.Controls.Add(btnDboard);
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(200, 43);
-            panel2.TabIndex = 2;
+            dboardPanel.Controls.Add(btnDboard);
+            dboardPanel.Location = new Point(3, 3);
+            dboardPanel.Name = "dboardPanel";
+            dboardPanel.Size = new Size(200, 43);
+            dboardPanel.TabIndex = 2;
             // 
             // btnDboard
             // 
@@ -146,7 +155,7 @@
             // 
             // manageContainer
             // 
-            manageContainer.Controls.Add(panel4);
+            manageContainer.Controls.Add(managePanel);
             manageContainer.Controls.Add(panel6);
             manageContainer.Controls.Add(panel7);
             manageContainer.Controls.Add(panel8);
@@ -155,14 +164,14 @@
             manageContainer.Size = new Size(197, 43);
             manageContainer.TabIndex = 7;
             // 
-            // panel4
+            // managePanel
             // 
-            panel4.Controls.Add(btnManage);
-            panel4.Location = new Point(0, 0);
-            panel4.Margin = new Padding(0);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(200, 43);
-            panel4.TabIndex = 6;
+            managePanel.Controls.Add(btnManage);
+            managePanel.Location = new Point(0, 0);
+            managePanel.Margin = new Padding(0);
+            managePanel.Name = "managePanel";
+            managePanel.Size = new Size(200, 43);
+            managePanel.TabIndex = 6;
             // 
             // btnManage
             // 
@@ -205,6 +214,7 @@
             button5.Text = "     Add Transaction";
             button5.TextAlign = ContentAlignment.MiddleLeft;
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // panel7
             // 
@@ -230,6 +240,7 @@
             button6.Text = "     Edit Transaction";
             button6.TextAlign = ContentAlignment.MiddleLeft;
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // panel8
             // 
@@ -255,14 +266,15 @@
             button7.Text = "     Categories";
             button7.TextAlign = ContentAlignment.MiddleLeft;
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
-            // panel3
+            // reportPanel
             // 
-            panel3.Controls.Add(btnReport);
-            panel3.Location = new Point(3, 101);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(200, 43);
-            panel3.TabIndex = 4;
+            reportPanel.Controls.Add(btnReport);
+            reportPanel.Location = new Point(3, 101);
+            reportPanel.Name = "reportPanel";
+            reportPanel.Size = new Size(200, 43);
+            reportPanel.TabIndex = 4;
             // 
             // btnReport
             // 
@@ -280,13 +292,13 @@
             btnReport.TextAlign = ContentAlignment.MiddleLeft;
             btnReport.UseVisualStyleBackColor = false;
             // 
-            // panel5
+            // logoutPanel
             // 
-            panel5.Controls.Add(btnLogout);
-            panel5.Location = new Point(3, 150);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(200, 43);
-            panel5.TabIndex = 5;
+            logoutPanel.Controls.Add(btnLogout);
+            logoutPanel.Location = new Point(3, 150);
+            logoutPanel.Name = "logoutPanel";
+            logoutPanel.Size = new Size(200, 43);
+            logoutPanel.TabIndex = 5;
             // 
             // btnLogout
             // 
@@ -306,45 +318,135 @@
             // 
             // manageTransition
             // 
+            manageTransition.Interval = 5;
             manageTransition.Tick += manageTransition_Tick;
+            // 
+            // sidebarTransition
+            // 
+            sidebarTransition.Interval = 1;
+            sidebarTransition.Tick += sidebarTransition_Tick;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(223, 130);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(565, 308);
+            dataGridView1.TabIndex = 2;
+            // 
+            // purpleLabel1
+            // 
+            purpleLabel1.AutoSize = true;
+            purpleLabel1.Font = new Font("Consolas", 14F, FontStyle.Bold);
+            purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
+            purpleLabel1.Location = new Point(223, 56);
+            purpleLabel1.Name = "purpleLabel1";
+            purpleLabel1.Size = new Size(120, 22);
+            purpleLabel1.TabIndex = 3;
+            purpleLabel1.Text = "Day Balance";
+            // 
+            // purpleLabel2
+            // 
+            purpleLabel2.AutoSize = true;
+            purpleLabel2.Font = new Font("Consolas", 14F, FontStyle.Bold);
+            purpleLabel2.ForeColor = Color.FromArgb(149, 88, 225);
+            purpleLabel2.Location = new Point(223, 105);
+            purpleLabel2.Name = "purpleLabel2";
+            purpleLabel2.Size = new Size(200, 22);
+            purpleLabel2.TabIndex = 4;
+            purpleLabel2.Text = "Transaction History";
+            // 
+            // bigTextBox1
+            // 
+            bigTextBox1.BackColor = Color.Transparent;
+            bigTextBox1.Font = new Font("Consolas", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bigTextBox1.ForeColor = Color.FromArgb(149, 88, 225);
+            bigTextBox1.Image = null;
+            bigTextBox1.Location = new Point(349, 50);
+            bigTextBox1.MaxLength = 32767;
+            bigTextBox1.Multiline = false;
+            bigTextBox1.Name = "bigTextBox1";
+            bigTextBox1.ReadOnly = false;
+            bigTextBox1.Size = new Size(148, 41);
+            bigTextBox1.TabIndex = 5;
+            bigTextBox1.Text = "0,00";
+            bigTextBox1.TextAlignment = HorizontalAlignment.Left;
+            bigTextBox1.UseSystemPasswordChar = false;
+            // 
+            // bigTextBox2
+            // 
+            bigTextBox2.BackColor = Color.Transparent;
+            bigTextBox2.Font = new Font("Consolas", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bigTextBox2.ForeColor = Color.FromArgb(149, 88, 225);
+            bigTextBox2.Image = null;
+            bigTextBox2.Location = new Point(649, 50);
+            bigTextBox2.MaxLength = 32767;
+            bigTextBox2.Multiline = false;
+            bigTextBox2.Name = "bigTextBox2";
+            bigTextBox2.ReadOnly = false;
+            bigTextBox2.Size = new Size(148, 46);
+            bigTextBox2.TabIndex = 7;
+            bigTextBox2.Text = "0,00";
+            bigTextBox2.TextAlignment = HorizontalAlignment.Left;
+            bigTextBox2.UseSystemPasswordChar = false;
+            // 
+            // purpleLabel3
+            // 
+            purpleLabel3.AutoSize = true;
+            purpleLabel3.Font = new Font("Consolas", 14F, FontStyle.Bold);
+            purpleLabel3.ForeColor = Color.FromArgb(149, 88, 225);
+            purpleLabel3.Location = new Point(503, 56);
+            purpleLabel3.Name = "purpleLabel3";
+            purpleLabel3.Size = new Size(140, 22);
+            purpleLabel3.TabIndex = 6;
+            purpleLabel3.Text = "Total Balance";
             // 
             // frmHome
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(bigTextBox2);
+            Controls.Add(purpleLabel3);
+            Controls.Add(bigTextBox1);
+            Controls.Add(purpleLabel2);
+            Controls.Add(purpleLabel1);
+            Controls.Add(dataGridView1);
+            Controls.Add(sidebarContainer);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmHome";
             Text = "Home";
+            Load += frmHome_Load;
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            flowLayoutPanel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnSidebar).EndInit();
+            sidebarContainer.ResumeLayout(false);
+            dboardPanel.ResumeLayout(false);
             manageContainer.ResumeLayout(false);
-            panel4.ResumeLayout(false);
+            managePanel.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel7.ResumeLayout(false);
             panel8.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel5.ResumeLayout(false);
+            reportPanel.ResumeLayout(false);
+            logoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Panel panel1;
-        private PictureBox pictureBox1;
+        private PictureBox btnSidebar;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Panel panel2;
+        private FlowLayoutPanel sidebarContainer;
+        private Panel dboardPanel;
         private Button btnDboard;
-        private Panel panel3;
+        private Panel reportPanel;
         private Button btnReport;
-        private Panel panel5;
+        private Panel logoutPanel;
         private Button btnLogout;
-        private Panel panel4;
+        private Panel managePanel;
         private Button btnManage;
         private FlowLayoutPanel manageContainer;
         private Panel panel6;
@@ -354,5 +456,12 @@
         private Panel panel8;
         private Button button7;
         private System.Windows.Forms.Timer manageTransition;
+        private System.Windows.Forms.Timer sidebarTransition;
+        private DataGridView dataGridView1;
+        private MeusControles.PurpleLabel purpleLabel1;
+        private MeusControles.PurpleLabel purpleLabel2;
+        private ReaLTaiizor.Controls.BigTextBox bigTextBox1;
+        private ReaLTaiizor.Controls.BigTextBox bigTextBox2;
+        private MeusControles.PurpleLabel purpleLabel3;
     }
 }
