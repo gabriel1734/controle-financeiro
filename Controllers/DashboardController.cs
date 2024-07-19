@@ -57,6 +57,7 @@ namespace ControleFinanceiro.Controllers
             }
         }
 
+
         public static void AdicionarCategoria(string nome)
         {
             using (AppDbContext db = new AppDbContext())
@@ -65,6 +66,11 @@ namespace ControleFinanceiro.Controllers
                 {
                     Nome = nome
                 };
+
+                if(db.Categorias.Any(c => c.Nome == categoria.Nome))
+                {
+                    throw new System.Exception("Category already exists!");
+                }
 
                 db.Categorias.Add(categoria);
                 db.SaveChanges();
@@ -99,5 +105,19 @@ namespace ControleFinanceiro.Controllers
                 throw new System.Exception("Category not found!");
             }
         }
+
+        public static void EditarCategoria(string nome)
+        {
+            using (AppDbContext db = new AppDbContext())
+            {
+                var categoria = db.Categorias.Find(nome);
+                if (categoria != null)
+                {
+                    categoria.Nome = nome;
+                    db.SaveChanges();
+                } else {
+                    throw new System.Exception("Category not found!");
+                }
+            }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using controlefinanceiro.Models;
+using ControleFinanceiro.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +14,26 @@ namespace controlefinanceiro.Views
 {
     public partial class frmEditCategory : Form
     {
-        public frmEditCategory(Usuario user)
+        public frmEditCategory(Categoria categoria)
         {
             InitializeComponent();
+            LoadCategoryData(categoria);
         }
 
         private void frmEditCategory_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void LoadCategoryData(Categoria categoria)
+        {
+            nameCategoria.Text = categoria.Nome;
+        }
+
+        private void btnDoneEdit_Click(object sender, EventArgs e)
+        {
+            DashboardController.EditarCategoria(newNameCategoria.Text);
+        }
+
     }
 }

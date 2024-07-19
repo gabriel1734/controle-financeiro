@@ -37,9 +37,11 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 66);
+            dataGridView1.Location = new Point(14, 88);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(425, 201);
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(486, 268);
             dataGridView1.TabIndex = 0;
             // 
             // purpleLabel1
@@ -47,28 +49,30 @@
             purpleLabel1.AutoSize = true;
             purpleLabel1.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel1.Location = new Point(12, 9);
+            purpleLabel1.Location = new Point(14, 12);
             purpleLabel1.Name = "purpleLabel1";
-            purpleLabel1.Size = new Size(144, 19);
+            purpleLabel1.Size = new Size(175, 23);
             purpleLabel1.TabIndex = 1;
             purpleLabel1.Text = "Filter by Date:";
             // 
             // poisonDateTime1
             // 
-            poisonDateTime1.Location = new Point(12, 31);
-            poisonDateTime1.MinimumSize = new Size(0, 29);
+            poisonDateTime1.Location = new Point(14, 41);
+            poisonDateTime1.Margin = new Padding(3, 4, 3, 4);
+            poisonDateTime1.MinimumSize = new Size(0, 30);
             poisonDateTime1.Name = "poisonDateTime1";
-            poisonDateTime1.Size = new Size(232, 29);
+            poisonDateTime1.Size = new Size(265, 30);
             poisonDateTime1.TabIndex = 21;
             // 
             // frmEditTransaction
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(461, 279);
+            ClientSize = new Size(527, 372);
             Controls.Add(poisonDateTime1);
             Controls.Add(purpleLabel1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmEditTransaction";
             Text = "frmEditTransaction";
             Load += frmEditTransaction_Load;

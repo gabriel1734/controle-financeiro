@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             purpleLabel1 = new MeusControles.PurpleLabel();
-            bigTextBox1 = new ReaLTaiizor.Controls.BigTextBox();
+            nameCategoria = new ReaLTaiizor.Controls.BigTextBox();
             purpleLabel2 = new MeusControles.PurpleLabel();
-            bigTextBox2 = new ReaLTaiizor.Controls.BigTextBox();
+            newNameCategoria = new ReaLTaiizor.Controls.BigTextBox();
             btnDoneEdit = new Button();
             btnEraseCat = new Button();
             SuspendLayout();
@@ -41,91 +41,97 @@
             purpleLabel1.AutoSize = true;
             purpleLabel1.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel1.Location = new Point(12, 9);
+            purpleLabel1.Location = new Point(14, 12);
             purpleLabel1.Name = "purpleLabel1";
-            purpleLabel1.Size = new Size(108, 19);
+            purpleLabel1.Size = new Size(131, 23);
             purpleLabel1.TabIndex = 0;
             purpleLabel1.Text = "Name Before";
             // 
-            // bigTextBox1
+            // nameCategoria
             // 
-            bigTextBox1.BackColor = Color.Transparent;
-            bigTextBox1.Enabled = false;
-            bigTextBox1.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bigTextBox1.ForeColor = Color.FromArgb(149, 88, 225);
-            bigTextBox1.Image = null;
-            bigTextBox1.Location = new Point(126, 9);
-            bigTextBox1.MaxLength = 32767;
-            bigTextBox1.Multiline = false;
-            bigTextBox1.Name = "bigTextBox1";
-            bigTextBox1.ReadOnly = false;
-            bigTextBox1.Size = new Size(188, 41);
-            bigTextBox1.TabIndex = 4;
-            bigTextBox1.TextAlignment = HorizontalAlignment.Left;
-            bigTextBox1.UseSystemPasswordChar = false;
+            nameCategoria.BackColor = Color.Transparent;
+            nameCategoria.Enabled = false;
+            nameCategoria.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nameCategoria.ForeColor = Color.FromArgb(149, 88, 225);
+            nameCategoria.Image = null;
+            nameCategoria.Location = new Point(144, 12);
+            nameCategoria.Margin = new Padding(3, 4, 3, 4);
+            nameCategoria.MaxLength = 32767;
+            nameCategoria.Multiline = false;
+            nameCategoria.Name = "nameCategoria";
+            nameCategoria.ReadOnly = false;
+            nameCategoria.Size = new Size(215, 45);
+            nameCategoria.TabIndex = 4;
+            nameCategoria.TextAlignment = HorizontalAlignment.Left;
+            nameCategoria.UseSystemPasswordChar = false;
             // 
             // purpleLabel2
             // 
             purpleLabel2.AutoSize = true;
             purpleLabel2.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             purpleLabel2.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel2.Location = new Point(39, 56);
+            purpleLabel2.Location = new Point(45, 75);
             purpleLabel2.Name = "purpleLabel2";
-            purpleLabel2.Size = new Size(81, 19);
+            purpleLabel2.Size = new Size(98, 23);
             purpleLabel2.TabIndex = 5;
             purpleLabel2.Text = "New Name";
             // 
-            // bigTextBox2
+            // newNameCategoria
             // 
-            bigTextBox2.BackColor = Color.Transparent;
-            bigTextBox2.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bigTextBox2.ForeColor = Color.FromArgb(149, 88, 225);
-            bigTextBox2.Image = null;
-            bigTextBox2.Location = new Point(126, 56);
-            bigTextBox2.MaxLength = 32767;
-            bigTextBox2.Multiline = false;
-            bigTextBox2.Name = "bigTextBox2";
-            bigTextBox2.ReadOnly = false;
-            bigTextBox2.Size = new Size(188, 41);
-            bigTextBox2.TabIndex = 6;
-            bigTextBox2.TextAlignment = HorizontalAlignment.Left;
-            bigTextBox2.UseSystemPasswordChar = false;
+            newNameCategoria.BackColor = Color.Transparent;
+            newNameCategoria.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            newNameCategoria.ForeColor = Color.FromArgb(149, 88, 225);
+            newNameCategoria.Image = null;
+            newNameCategoria.Location = new Point(144, 75);
+            newNameCategoria.Margin = new Padding(3, 4, 3, 4);
+            newNameCategoria.MaxLength = 32767;
+            newNameCategoria.Multiline = false;
+            newNameCategoria.Name = "newNameCategoria";
+            newNameCategoria.ReadOnly = false;
+            newNameCategoria.Size = new Size(215, 45);
+            newNameCategoria.TabIndex = 6;
+            newNameCategoria.TextAlignment = HorizontalAlignment.Left;
+            newNameCategoria.UseSystemPasswordChar = false;
             // 
             // btnDoneEdit
             // 
             btnDoneEdit.BackColor = Color.FromArgb(149, 88, 225);
             btnDoneEdit.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDoneEdit.ForeColor = Color.White;
-            btnDoneEdit.Location = new Point(206, 103);
+            btnDoneEdit.Location = new Point(235, 137);
+            btnDoneEdit.Margin = new Padding(3, 4, 3, 4);
             btnDoneEdit.Name = "btnDoneEdit";
-            btnDoneEdit.Size = new Size(108, 42);
+            btnDoneEdit.Size = new Size(123, 56);
             btnDoneEdit.TabIndex = 24;
             btnDoneEdit.Text = "Done";
             btnDoneEdit.UseVisualStyleBackColor = false;
+            btnDoneEdit.Click += btnDoneEdit_Click;
             // 
             // btnEraseCat
             // 
             btnEraseCat.BackColor = Color.FromArgb(192, 0, 0);
             btnEraseCat.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEraseCat.ForeColor = Color.White;
-            btnEraseCat.Location = new Point(12, 103);
+            btnEraseCat.Location = new Point(14, 137);
+            btnEraseCat.Margin = new Padding(3, 4, 3, 4);
             btnEraseCat.Name = "btnEraseCat";
-            btnEraseCat.Size = new Size(151, 42);
+            btnEraseCat.Size = new Size(173, 56);
             btnEraseCat.TabIndex = 25;
             btnEraseCat.Text = "Erase Category";
             btnEraseCat.UseVisualStyleBackColor = false;
             // 
             // frmEditCategory
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(325, 156);
+            ClientSize = new Size(371, 208);
             Controls.Add(btnEraseCat);
             Controls.Add(btnDoneEdit);
-            Controls.Add(bigTextBox2);
+            Controls.Add(newNameCategoria);
             Controls.Add(purpleLabel2);
-            Controls.Add(bigTextBox1);
+            Controls.Add(nameCategoria);
             Controls.Add(purpleLabel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmEditCategory";
             Text = "frmEditCategory";
             Load += frmEditCategory_Load;
@@ -136,9 +142,9 @@
         #endregion
 
         private MeusControles.PurpleLabel purpleLabel1;
-        private ReaLTaiizor.Controls.BigTextBox bigTextBox1;
+        private ReaLTaiizor.Controls.BigTextBox nameCategoria;
         private MeusControles.PurpleLabel purpleLabel2;
-        private ReaLTaiizor.Controls.BigTextBox bigTextBox2;
+        private ReaLTaiizor.Controls.BigTextBox newNameCategoria;
         private Button btnDoneEdit;
         private Button btnEraseCat;
     }

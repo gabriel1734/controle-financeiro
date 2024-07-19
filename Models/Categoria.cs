@@ -10,5 +10,7 @@ namespace controlefinanceiro.Models
         [Required]
         [StringLength(100)]
         public string Nome { get; set; }
+
+        public bool status { get; set; }
     }
 }

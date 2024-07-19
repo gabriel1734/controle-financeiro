@@ -5,6 +5,7 @@ using controlefinanceiro.Controllers;
 using controlefinanceiro.Views;
 using System;
 using ControleFinanceiro.Controllers;
+using controlefinanceiro.Models;
 
 
 namespace controlefinanceiro
@@ -30,22 +31,19 @@ namespace controlefinanceiro
             }
 
 
-            /*if (!UsuarioController.CountIfExist())
+            if (!UsuarioController.CountIfExist())
             {
                 Application.Run(new frmRegister());
             }
             else
             {
                 Application.Run(new frmLogin());
-            }*/
+            }
 
-            
+           // Usuario usuario = UsuarioController.getUser("Gabriel", "123");
+            //Application.Run(new frmHome(usuario));
 
-            Application.Run(new frmRelatorio());
-            ApplicationConfiguration.Initialize();
-            
 
-            
 
         }
     }
