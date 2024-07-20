@@ -31,6 +31,13 @@ namespace controlefinanceiro.Views
             configureForm(user, tr);
         }
 
+        public frmAddTransaction(Models.Usuario user, Transacao tr)
+        {
+            InitializeComponent();
+            configureDatePickers();
+            configureForm(user, tr);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if(idTransaction.Text == "")
