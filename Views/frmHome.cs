@@ -20,7 +20,7 @@ namespace controlefinanceiro.Views
         public frmHome(Models.Usuario user)
         {
             InitializeComponent();
-            loadHome();
+            loadHome(DateTime.Now);
             this.user = user;
         }
         bool manageExpand = false;
@@ -61,12 +61,14 @@ namespace controlefinanceiro.Views
 
         private void sidebarTransition_Tick(object sender, EventArgs e)
         {
+            sidebarContainer.BringToFront();
             if (sidebarExpand == false)
             {
                 sidebarContainer.Width += 10;
                 if (sidebarContainer.Width >= 200)
                 {
                     sidebarTransition.Stop();
+                    
                     sidebarExpand = true;
                 }
             }
@@ -83,10 +85,10 @@ namespace controlefinanceiro.Views
 
         private void button5_Click(object sender, EventArgs e)
         {
-            using(Views.frmAddTransaction addTransaction = new Views.frmAddTransaction(user))
+            using (Views.frmAddTransaction addTransaction = new Views.frmAddTransaction(user))
             {
                 addTransaction.ShowDialog();
-                loadHome();
+                loadHome(DateTime.Now);
             }
         }
 
@@ -107,12 +109,12 @@ namespace controlefinanceiro.Views
 
         }
 
-        private void loadHome()
+        private void loadHome(DateTime date)
         {
-            List<Transacao> transacoes = DashboardController.ObterTransacoesDoDia(DateTime.Now);
+            List<Transacao> transacoes = DashboardController.ObterTransacoesDoDia(date);
 
             TotalBalance.Text = SaldoController.ObterSaldo().ToString();
-            DayBalance.Text = SaldoController.ObterSaldoPorDia(DateTime.Now).ToString();
+            DayBalance.Text = SaldoController.ObterSaldoPorDia(date).ToString();
 
             mainTransactions.Rows.Clear();
             mainTransactions.Columns.Clear();
@@ -136,6 +138,11 @@ namespace controlefinanceiro.Views
                     transacao.Tipo
                 );
             }
+        }
+
+        private void findBtn_Click(object sender, EventArgs e)
+        {
+            loadHome(dateTransaction.Value);
         }
     }
 }

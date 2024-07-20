@@ -30,7 +30,8 @@
         {
             mainDataTransactions = new DataGridView();
             purpleLabel1 = new MeusControles.PurpleLabel();
-            poisonDateTime1 = new ReaLTaiizor.Controls.PoisonDateTime();
+            dateFilter = new ReaLTaiizor.Controls.PoisonDateTime();
+            serchBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)mainDataTransactions).BeginInit();
             SuspendLayout();
             // 
@@ -43,6 +44,8 @@
             mainDataTransactions.RowHeadersWidth = 51;
             mainDataTransactions.Size = new Size(486, 268);
             mainDataTransactions.TabIndex = 0;
+            mainDataTransactions.CellContentClick += mainDataTransactions_CellContentClick;
+            mainDataTransactions.CellDoubleClick += mainDataTransactions_CellContentClick;
             // 
             // purpleLabel1
             // 
@@ -55,21 +58,37 @@
             purpleLabel1.TabIndex = 1;
             purpleLabel1.Text = "Filter by Date:";
             // 
-            // poisonDateTime1
+            // dateFilter
             // 
-            poisonDateTime1.Location = new Point(14, 41);
-            poisonDateTime1.Margin = new Padding(3, 4, 3, 4);
-            poisonDateTime1.MinimumSize = new Size(0, 30);
-            poisonDateTime1.Name = "poisonDateTime1";
-            poisonDateTime1.Size = new Size(265, 30);
-            poisonDateTime1.TabIndex = 21;
+            dateFilter.Format = DateTimePickerFormat.Custom;
+            dateFilter.Location = new Point(14, 41);
+            dateFilter.Margin = new Padding(3, 4, 3, 4);
+            dateFilter.MinimumSize = new Size(0, 30);
+            dateFilter.Name = "dateFilter";
+            dateFilter.Size = new Size(265, 30);
+            dateFilter.TabIndex = 21;
+            // 
+            // serchBtn
+            // 
+            serchBtn.BackColor = Color.FromArgb(149, 88, 225);
+            serchBtn.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            serchBtn.ForeColor = Color.White;
+            serchBtn.Location = new Point(296, 37);
+            serchBtn.Margin = new Padding(3, 4, 3, 4);
+            serchBtn.Name = "serchBtn";
+            serchBtn.Size = new Size(204, 40);
+            serchBtn.TabIndex = 22;
+            serchBtn.Text = "Filter";
+            serchBtn.UseVisualStyleBackColor = false;
+            serchBtn.Click += serchBtn_Click;
             // 
             // frmEditTransaction
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(527, 372);
-            Controls.Add(poisonDateTime1);
+            Controls.Add(serchBtn);
+            Controls.Add(dateFilter);
             Controls.Add(purpleLabel1);
             Controls.Add(mainDataTransactions);
             Margin = new Padding(3, 4, 3, 4);
@@ -85,6 +104,7 @@
 
         private DataGridView mainDataTransactions;
         private MeusControles.PurpleLabel purpleLabel1;
-        private ReaLTaiizor.Controls.PoisonDateTime poisonDateTime1;
+        private ReaLTaiizor.Controls.PoisonDateTime dateFilter;
+        private Button serchBtn;
     }
 }

@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace controlefinanceiro.Views
@@ -17,15 +18,24 @@ namespace controlefinanceiro.Views
     {
         public frmAddTransaction(Models.Usuario user)
         {
+
             InitializeComponent();
             configureDatePickers();
             configureForm(user);
-            //InitializeTextBox();
+        }
+
+        public frmAddTransaction(Models.Usuario user, Transacao tr)
+        {
+            InitializeComponent();
+            configureDatePickers();
+            configureForm(user, tr);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DashboardController.AdicionarTransacao(
+            if(idTransaction.Text == "")
+            {
+                DashboardController.AdicionarTransacao(
                     Convert.ToInt32(userID.Text),
                     Convert.ToInt32(category.SelectedValue.ToString()),
                     Convert.ToDecimal(valueTransaction.Text),
@@ -33,10 +43,22 @@ namespace controlefinanceiro.Views
                     descriptionTransaction.Text,
                     typeTransaction.SelectedValue.ToString()
                 );
-            MessageBox.Show("Transaction Successfully Added");
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-
+                MessageBox.Show("Transaction Successfully Added");
+                this.DialogResult = DialogResult.OK;
+            } else
+            {
+                DashboardController.EditarTransacao(
+                    Convert.ToInt32(idTransaction.Text),
+                    Convert.ToInt32(userID.Text),
+                    Convert.ToInt32(category.SelectedValue.ToString()),
+                    Convert.ToDecimal(valueTransaction.Text),
+                    DateTransaction.Value,
+                    descriptionTransaction.Text,
+                    typeTransaction.SelectedValue.ToString()
+                );
+                MessageBox.Show("Transaction Successfully Edited");
+                this.DialogResult = DialogResult.OK;
+            }
         }
 
         private void configureDatePickers()
@@ -60,13 +82,40 @@ namespace controlefinanceiro.Views
 
         }
 
-        private void InitializeTextBox()
+        private void configureForm(Usuario user, Transacao tr)
         {
-            valueTransaction = new ReaLTaiizor.Controls.BigTextBox();
-            valueTransaction.Location = new Point(20, 20);
-            valueTransaction.KeyPress += new KeyPressEventHandler(valueTransaction_KeyPress);
+            List<Models.Categoria> categoria = DashboardController.ListarCategorias();
+            category.DataSource = categoria;
+            category.DisplayMember = "Nome";
+            category.ValueMember = "Id";
+            userID.Text = user.Id.ToString();
+            List<string> tipos = new List<string> { "Entrada", "Saída" };
+            typeTransaction.DataSource = tipos;
 
-            this.Controls.Add(valueTransaction);
+            if(tr.Tipo == "Entrada")
+            {
+                typeTransaction.SelectedIndex = 0;
+            }
+            else
+            {
+                typeTransaction.SelectedIndex = 1;
+            }
+
+
+            foreach (Models.Categoria cat in categoria)
+            {
+                if (cat.Nome == tr.Categoria.Nome)
+                {
+                    category.SelectedValue = cat.Id;
+                    break;
+                }
+            }
+
+
+            idTransaction.Text = tr.Id.ToString();
+            DateTransaction.Value = tr.Data;
+            valueTransaction.Text = tr.Valor.ToString();
+            descriptionTransaction.Text = tr.Descricao;
         }
 
         private void valueTransaction_KeyPress(object sender, KeyPressEventArgs e)
