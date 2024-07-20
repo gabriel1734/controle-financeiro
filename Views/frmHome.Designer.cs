@@ -57,6 +57,9 @@
             DayBalance = new ReaLTaiizor.Controls.BigTextBox();
             TotalBalance = new ReaLTaiizor.Controls.BigTextBox();
             purpleLabel3 = new MeusControles.PurpleLabel();
+            dateTransaction = new ReaLTaiizor.Controls.PoisonDateTime();
+            findBtn = new Button();
+            purpleLabel4 = new MeusControles.PurpleLabel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnSidebar).BeginInit();
             sidebarContainer.SuspendLayout();
@@ -80,7 +83,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(914, 59);
+            panel1.Size = new Size(1026, 59);
             panel1.TabIndex = 0;
             // 
             // nightControlBox1
@@ -97,7 +100,7 @@
             nightControlBox1.EnableMaximizeColor = Color.White;
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.White;
-            nightControlBox1.Location = new Point(775, 0);
+            nightControlBox1.Location = new Point(887, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -343,11 +346,11 @@
             // mainTransactions
             // 
             mainTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mainTransactions.Location = new Point(255, 173);
+            mainTransactions.Location = new Point(255, 119);
             mainTransactions.Margin = new Padding(3, 4, 3, 4);
             mainTransactions.Name = "mainTransactions";
             mainTransactions.RowHeadersWidth = 51;
-            mainTransactions.Size = new Size(646, 411);
+            mainTransactions.Size = new Size(744, 465);
             mainTransactions.TabIndex = 2;
             // 
             // purpleLabel1
@@ -355,7 +358,7 @@
             purpleLabel1.AutoSize = true;
             purpleLabel1.Font = new Font("Consolas", 14F, FontStyle.Bold);
             purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel1.Location = new Point(255, 75);
+            purpleLabel1.Location = new Point(23, 76);
             purpleLabel1.Name = "purpleLabel1";
             purpleLabel1.Size = new Size(155, 28);
             purpleLabel1.TabIndex = 3;
@@ -366,7 +369,7 @@
             purpleLabel2.AutoSize = true;
             purpleLabel2.Font = new Font("Consolas", 14F, FontStyle.Bold);
             purpleLabel2.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel2.Location = new Point(255, 140);
+            purpleLabel2.Location = new Point(253, 76);
             purpleLabel2.Name = "purpleLabel2";
             purpleLabel2.Size = new Size(259, 28);
             purpleLabel2.TabIndex = 4;
@@ -379,7 +382,7 @@
             DayBalance.Font = new Font("Consolas", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DayBalance.ForeColor = Color.FromArgb(149, 88, 225);
             DayBalance.Image = null;
-            DayBalance.Location = new Point(399, 67);
+            DayBalance.Location = new Point(23, 128);
             DayBalance.Margin = new Padding(3, 4, 3, 4);
             DayBalance.MaxLength = 32767;
             DayBalance.Multiline = false;
@@ -398,7 +401,7 @@
             TotalBalance.Font = new Font("Consolas", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             TotalBalance.ForeColor = Color.FromArgb(149, 88, 225);
             TotalBalance.Image = null;
-            TotalBalance.Location = new Point(742, 67);
+            TotalBalance.Location = new Point(23, 242);
             TotalBalance.Margin = new Padding(3, 4, 3, 4);
             TotalBalance.MaxLength = 32767;
             TotalBalance.Multiline = false;
@@ -415,17 +418,54 @@
             purpleLabel3.AutoSize = true;
             purpleLabel3.Font = new Font("Consolas", 14F, FontStyle.Bold);
             purpleLabel3.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel3.Location = new Point(575, 75);
+            purpleLabel3.Location = new Point(23, 193);
             purpleLabel3.Name = "purpleLabel3";
             purpleLabel3.Size = new Size(181, 28);
             purpleLabel3.TabIndex = 6;
             purpleLabel3.Text = "Total Balance";
             // 
+            // dateTransaction
+            // 
+            dateTransaction.Format = DateTimePickerFormat.Custom;
+            dateTransaction.Location = new Point(23, 359);
+            dateTransaction.MinimumSize = new Size(0, 30);
+            dateTransaction.Name = "dateTransaction";
+            dateTransaction.Size = new Size(169, 30);
+            dateTransaction.TabIndex = 8;
+            // 
+            // findBtn
+            // 
+            findBtn.BackColor = Color.FromArgb(149, 88, 225);
+            findBtn.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            findBtn.ForeColor = Color.Transparent;
+            findBtn.Location = new Point(23, 418);
+            findBtn.Margin = new Padding(3, 4, 3, 4);
+            findBtn.Name = "findBtn";
+            findBtn.Size = new Size(175, 68);
+            findBtn.TabIndex = 0;
+            findBtn.Text = "Search";
+            findBtn.UseVisualStyleBackColor = false;
+            findBtn.Click += findBtn_Click;
+            // 
+            // purpleLabel4
+            // 
+            purpleLabel4.AutoSize = true;
+            purpleLabel4.Font = new Font("Consolas", 14F, FontStyle.Bold);
+            purpleLabel4.ForeColor = Color.FromArgb(149, 88, 225);
+            purpleLabel4.Location = new Point(23, 311);
+            purpleLabel4.Name = "purpleLabel4";
+            purpleLabel4.Size = new Size(64, 28);
+            purpleLabel4.TabIndex = 26;
+            purpleLabel4.Text = "Date";
+            // 
             // frmHome
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(1026, 600);
+            Controls.Add(purpleLabel4);
+            Controls.Add(findBtn);
+            Controls.Add(dateTransaction);
             Controls.Add(TotalBalance);
             Controls.Add(purpleLabel3);
             Controls.Add(DayBalance);
@@ -484,5 +524,8 @@
         private ReaLTaiizor.Controls.BigTextBox DayBalance;
         private ReaLTaiizor.Controls.BigTextBox TotalBalance;
         private MeusControles.PurpleLabel purpleLabel3;
+        private ReaLTaiizor.Controls.PoisonDateTime dateTransaction;
+        private Button findBtn;
+        private MeusControles.PurpleLabel purpleLabel4;
     }
 }

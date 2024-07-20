@@ -185,7 +185,7 @@
             button1.Location = new Point(146, 460);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(138, 68);
+            button1.Size = new Size(153, 68);
             button1.TabIndex = 21;
             button1.Text = "Add Transaction";
             button1.UseVisualStyleBackColor = false;
@@ -205,6 +205,7 @@
             // idTransaction
             // 
             idTransaction.BackColor = Color.Transparent;
+            idTransaction.Enabled = false;
             idTransaction.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             idTransaction.ForeColor = Color.FromArgb(149, 88, 225);
             idTransaction.Image = null;
@@ -235,7 +236,7 @@
             userID.ReadOnly = false;
             userID.Size = new Size(125, 46);
             userID.TabIndex = 24;
-            userID.Text = "bigTextBox1";
+            userID.Text = "userID";
             userID.TextAlignment = HorizontalAlignment.Left;
             userID.UseSystemPasswordChar = false;
             userID.Visible = false;

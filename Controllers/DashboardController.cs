@@ -65,6 +65,51 @@ namespace ControleFinanceiro.Controllers
                return db.Categorias.Where(c => c.status != false).ToList();
             }
         }
+
+
+        public static void EditarTransacao(int id, int usuarioId, int categoriaId, decimal valor, DateTime data, string descricao, string tipo)
+        {
+            if (valor <= 0)
+            {
+                throw new System.Exception("Value must be greater than zero!");
+            }
+
+            if (data > DateTime.Now)
+            {
+                throw new System.Exception("Date cannot be greater than today!");
+            }
+
+            if (tipo != "Entrada" && tipo != "Saída")
+            {
+                throw new System.Exception("Invalid transaction type!");
+            }
+
+
+            using (AppDbContext db = new AppDbContext())
+            {
+
+
+                if (!db.Categorias.Any(c => c.Id == categoriaId))
+                {
+                    throw new System.Exception("Category not found!");
+                }
+
+                if (tipo == "Saída")
+                {
+                    valor = valor * -1;
+                }
+
+                Transacao tr = db.Transacoes.Find(id);
+                tr.UsuarioId = usuarioId;
+                tr.CategoriaId = categoriaId;
+                tr.Valor = valor;
+                tr.Data = data;
+                tr.Descricao = descricao;
+                tr.Tipo = tipo;
+
+                db.SaveChanges();
+            }
+        }
         public static void AdicionarTransacao(int usuarioId, int categoriaId, decimal valor, DateTime data, string descricao, string tipo)
         {
             if(valor <= 0)
@@ -144,6 +189,23 @@ namespace ControleFinanceiro.Controllers
                     db.Categorias.Update(categoria);
                     db.SaveChanges();
                 } else
+                {
+                    throw new System.Exception("Category not found!");
+                }
+            }
+        }
+
+        public static void EditarCategoria(string nome)
+        {
+            using (AppDbContext db = new AppDbContext())
+            {
+                var categoria = db.Categorias.Find(nome);
+                if (categoria != null)
+                {
+                    categoria.Nome = nome;
+                    db.SaveChanges();
+                }
+                else
                 {
                     throw new System.Exception("Category not found!");
                 }
