@@ -31,6 +31,7 @@ namespace controlefinanceiro.Views
             configureForm(user, tr);
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             if(idTransaction.Text == "")
