@@ -26,5 +26,32 @@ namespace controlefinanceiro.Controllers
                 return transacoes.Sum(t => t.Valor);
             }
         }
+        public static decimal ObterSaldoPeriodo(DateTime inicio, DateTime fim, int? categoriaId, string tipo)
+        {
+            using (AppDbContext db = new AppDbContext())
+            {
+                var query = db.Transacoes.Where(t => t.Data.Date >= inicio.Date && t.Data.Date <= fim.Date);
+
+                if (categoriaId.HasValue && categoriaId.Value > 0)
+                {
+                    query = query.Where(t => t.CategoriaId == categoriaId.Value);
+                }
+
+  
+                if (tipo == "Entrada")
+                {
+                    query = query.Where(t => t.Valor > 0);
+                }
+                else if (tipo == "Saída")
+                {
+                    query = query.Where(t => t.Valor < 0);
+                }
+
+                var transacoes = query.ToList();
+
+                decimal saldo = transacoes.Sum(t => t.Valor);
+                return saldo;
+            }
+        }
     }
 }

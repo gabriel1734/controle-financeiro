@@ -33,15 +33,15 @@ namespace controlefinanceiro
 
             /*if (!UsuarioController.CountIfExist())
             {
-                Application.Run(new frmRegister());
+                
             }
             else
             {
                 Application.Run(new frmLogin());
             }*/
 
-           Usuario usuario = UsuarioController.getUser("g", "123");
-           Application.Run(new frmHome(usuario));
+            Application.Run(new frmRegister());
+
 
 
 

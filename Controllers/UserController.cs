@@ -1,76 +1,91 @@
-﻿// UsuarioController.cs
-using controlefinanceiro.Data;
+﻿using controlefinanceiro.Data;
 using controlefinanceiro.Helpers;
 using controlefinanceiro.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace controlefinanceiro.Controllers
 {
     internal class UsuarioController
     {
-        
         public static bool CountIfExist()
         {
-           
-            using(AppDbContext db = new AppDbContext())
+            using (AppDbContext db = new AppDbContext())
             {
-
-                if (db.Usuarios.AsQueryable().Count() > 0)
-                {
-                    return true;
-                }
+                return db.Usuarios.Any();
             }
-           
-            return false;
         }
 
         public static void storeUser(string username, string password, string confirmPassword)
         {
-            if (password != confirmPassword)
-            {
-                throw new System.Exception("Passwords do not match.!!!");
-            }
-
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                throw new System.Exception("Password and Username are required!!!");
+                throw new System.Exception("Password and Username are required!");
             }
 
-            Usuario user = new Usuario();
-            user.Username = username;
+            if (password != confirmPassword)
+            {
+                throw new System.Exception("Passwords do not match!");
+            }
 
-            user.Senha = HashHelper.GetMd5Hash(password + "pao de batata");
-            using(AppDbContext db = new AppDbContext())
-            {         
+            if (!IsPasswordSecure(password))
+            {
+                throw new System.Exception("Password does not meet security requirements!");
+            }
+
+            Usuario user = new Usuario
+            {
+                Username = username,
+                Senha = HashHelper.GetMd5Hash(password + "pao de batata")
+            };
+
+            using (AppDbContext db = new AppDbContext())
+            {
                 db.Usuarios.Add(user);
                 db.SaveChanges();
             }
         }
+
+        private static bool IsPasswordSecure(string password)
+        {
+            if (password.Length < 8)
+                return false;
+            if (!Regex.IsMatch(password, @"[A-Z]")) // Contains an uppercase letter
+                return false;
+            if (!Regex.IsMatch(password, @"[a-z]")) // Contains a lowercase letter
+                return false;
+            if (!Regex.IsMatch(password, @"\d")) // Contains a digit
+                return false;
+            if (!Regex.IsMatch(password, @"[\W_]")) // Contains a special character
+                return false;
+            return true;
+        }
+
         public static Usuario getUser(string username, string password)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-               throw new System.Exception("Password and Username are required!!!");
+                MessageBox.Show("Password and Username are required!");
+                return null;
             }
+
             password = HashHelper.GetMd5Hash(password + "pao de batata");
+
             using (AppDbContext db = new AppDbContext())
             {
-                if(db.Usuarios.AsQueryable().Where(u => u.Username == username && u.Senha == password).Count() > 0)
+                var user = db.Usuarios.FirstOrDefault(u => u.Username == username && u.Senha == password);
+
+                if (user != null)
                 {
-                    return db.Usuarios.AsQueryable().Where(u => u.Username == username && u.Senha == password).First();
+                    return user;
                 }
                 else
                 {
-                    throw new System.Exception("User not found!!!");
+                    MessageBox.Show("User not found or incorrect password!");
+                    return null;
                 }
             }
         }
-
     }
 }

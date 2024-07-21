@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace controlefinanceiro.Views
 {
     public partial class frmHome : Form
@@ -68,7 +69,7 @@ namespace controlefinanceiro.Views
                 if (sidebarContainer.Width >= 200)
                 {
                     sidebarTransition.Stop();
-                    
+
                     sidebarExpand = true;
                 }
             }
@@ -104,9 +105,15 @@ namespace controlefinanceiro.Views
             categories.Show();
         }
 
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            Views.frmRelatorio relatorio = new Views.frmRelatorio();
+            relatorio.Show();
+        }
+
         private void frmHome_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void loadHome(DateTime date)
@@ -126,7 +133,6 @@ namespace controlefinanceiro.Views
             mainTransactions.Columns.Add("Descrição", "Descrição");
             mainTransactions.Columns.Add("Tipo", "Tipo");
 
-
             foreach (var transacao in transacoes)
             {
                 mainTransactions.Rows.Add(
@@ -143,6 +149,25 @@ namespace controlefinanceiro.Views
         private void findBtn_Click(object sender, EventArgs e)
         {
             loadHome(dateTransaction.Value);
+        }
+        private void logout_Click(object sender, EventArgs e)
+        {
+            LogoutController.Logout();
+        }
+
+        private void TotalBalance_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mainTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DayBalance_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

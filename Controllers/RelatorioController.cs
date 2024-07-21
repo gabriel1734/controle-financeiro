@@ -1,20 +1,21 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using controlefinanceiro.Models;
 using controlefinanceiro.Data;
 using OfficeOpenXml.Core.ExcelPackage;
-
+using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 namespace ControleFinanceiro.Controllers
 {
     public class RelatorioController
     {
-        public static List<Transacao> ObterTransacoesPorFiltro(DateTime dataInicio, DateTime dataFim, int? categoria, string? tipo)
+        public static List<Transacao> ObterTransacoesPorFiltro(DateTime dataInicio, DateTime dataFim, int? categoria, string tipo)
         {
             using (AppDbContext db = new AppDbContext())
             {
-                var query = db.Transacoes.AsQueryable();
+                var query = db.Transacoes.Include(t => t.Categoria).AsQueryable();
 
                 if (dataInicio != DateTime.MinValue)
                 {
@@ -28,7 +29,7 @@ namespace ControleFinanceiro.Controllers
 
                 if (categoria != 0)
                 {
-                    query = query.Where(t => t.Categoria.Id == categoria);
+                    query = query.Where(t => t.CategoriaId == categoria);
                 }
 
                 if (tipo != "Todos Tipos")
@@ -62,9 +63,15 @@ namespace ControleFinanceiro.Controllers
 
             return agrupadoPorCategoria;
         }
+        private void logout_Click(object sender, EventArgs e)
+        {
+            LogoutController.Logout();
+        }
 
         public static void ExportarParaExcel(List<Transacao> transacoes, string caminhoArquivo)
         {
+            OfficeOpenXml.ExcelPackage.LicenseContext = LicenseContext.NonCommercial;  
+
             using (var memoryStream = new MemoryStream())
             {
                 using (var package = new OfficeOpenXml.ExcelPackage(memoryStream))
@@ -97,7 +104,6 @@ namespace ControleFinanceiro.Controllers
             }
         }
     }
-
     public class CategoriaTransacoes
     {
         public string Categoria { get; set; }
