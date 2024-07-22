@@ -81,9 +81,8 @@
             panel1.Controls.Add(btnSidebar);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1026, 59);
+            panel1.Size = new Size(898, 44);
             panel1.TabIndex = 0;
             // 
             // nightControlBox1
@@ -100,7 +99,7 @@
             nightControlBox1.EnableMaximizeColor = Color.White;
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.White;
-            nightControlBox1.Location = new Point(887, 0);
+            nightControlBox1.Location = new Point(759, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -112,10 +111,9 @@
             // btnSidebar
             // 
             btnSidebar.Image = (Image)resources.GetObject("btnSidebar.Image");
-            btnSidebar.Location = new Point(3, 4);
-            btnSidebar.Margin = new Padding(3, 4, 3, 4);
+            btnSidebar.Location = new Point(3, 3);
             btnSidebar.Name = "btnSidebar";
-            btnSidebar.Size = new Size(40, 47);
+            btnSidebar.Size = new Size(35, 35);
             btnSidebar.SizeMode = PictureBoxSizeMode.CenterImage;
             btnSidebar.TabIndex = 1;
             btnSidebar.TabStop = false;
@@ -128,19 +126,18 @@
             sidebarContainer.Controls.Add(manageContainer);
             sidebarContainer.Controls.Add(reportPanel);
             sidebarContainer.Controls.Add(logoutPanel);
-            sidebarContainer.Location = new Point(0, 59);
-            sidebarContainer.Margin = new Padding(3, 4, 3, 4);
+            sidebarContainer.Dock = DockStyle.Left;
+            sidebarContainer.Location = new Point(0, 44);
             sidebarContainer.Name = "sidebarContainer";
-            sidebarContainer.Size = new Size(0, 541);
+            sidebarContainer.Size = new Size(0, 406);
             sidebarContainer.TabIndex = 1;
             // 
             // dboardPanel
             // 
             dboardPanel.Controls.Add(btnDboard);
-            dboardPanel.Location = new Point(3, 4);
-            dboardPanel.Margin = new Padding(3, 4, 3, 4);
+            dboardPanel.Location = new Point(3, 3);
             dboardPanel.Name = "dboardPanel";
-            dboardPanel.Size = new Size(229, 57);
+            dboardPanel.Size = new Size(200, 43);
             dboardPanel.TabIndex = 2;
             // 
             // btnDboard
@@ -150,11 +147,10 @@
             btnDboard.ForeColor = Color.White;
             btnDboard.Image = (Image)resources.GetObject("btnDboard.Image");
             btnDboard.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDboard.Location = new Point(-14, -20);
-            btnDboard.Margin = new Padding(3, 4, 3, 4);
+            btnDboard.Location = new Point(-12, -15);
             btnDboard.Name = "btnDboard";
-            btnDboard.Padding = new Padding(23, 0, 0, 0);
-            btnDboard.Size = new Size(258, 97);
+            btnDboard.Padding = new Padding(20, 0, 0, 0);
+            btnDboard.Size = new Size(226, 73);
             btnDboard.TabIndex = 3;
             btnDboard.Text = "     Dashboard";
             btnDboard.TextAlign = ContentAlignment.MiddleLeft;
@@ -166,10 +162,9 @@
             manageContainer.Controls.Add(panel6);
             manageContainer.Controls.Add(panel7);
             manageContainer.Controls.Add(panel8);
-            manageContainer.Location = new Point(3, 69);
-            manageContainer.Margin = new Padding(3, 4, 3, 4);
+            manageContainer.Location = new Point(3, 52);
             manageContainer.Name = "manageContainer";
-            manageContainer.Size = new Size(225, 57);
+            manageContainer.Size = new Size(197, 43);
             manageContainer.TabIndex = 7;
             // 
             // managePanel
@@ -178,7 +173,7 @@
             managePanel.Location = new Point(0, 0);
             managePanel.Margin = new Padding(0);
             managePanel.Name = "managePanel";
-            managePanel.Size = new Size(229, 57);
+            managePanel.Size = new Size(200, 43);
             managePanel.TabIndex = 6;
             // 
             // btnManage
@@ -188,11 +183,10 @@
             btnManage.ForeColor = Color.White;
             btnManage.Image = (Image)resources.GetObject("btnManage.Image");
             btnManage.ImageAlign = ContentAlignment.MiddleLeft;
-            btnManage.Location = new Point(-14, -20);
-            btnManage.Margin = new Padding(3, 4, 3, 4);
+            btnManage.Location = new Point(-12, -15);
             btnManage.Name = "btnManage";
-            btnManage.Padding = new Padding(23, 0, 0, 0);
-            btnManage.Size = new Size(258, 97);
+            btnManage.Padding = new Padding(20, 0, 0, 0);
+            btnManage.Size = new Size(226, 73);
             btnManage.TabIndex = 3;
             btnManage.Text = "     Manage";
             btnManage.TextAlign = ContentAlignment.MiddleLeft;
@@ -202,10 +196,10 @@
             // panel6
             // 
             panel6.Controls.Add(button5);
-            panel6.Location = new Point(0, 57);
+            panel6.Location = new Point(0, 43);
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
-            panel6.Size = new Size(229, 57);
+            panel6.Size = new Size(200, 43);
             panel6.TabIndex = 7;
             // 
             // button5
@@ -215,11 +209,10 @@
             button5.ForeColor = Color.White;
             button5.Image = (Image)resources.GetObject("button5.Image");
             button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(-14, -20);
-            button5.Margin = new Padding(3, 4, 3, 4);
+            button5.Location = new Point(-12, -15);
             button5.Name = "button5";
-            button5.Padding = new Padding(23, 0, 0, 0);
-            button5.Size = new Size(258, 97);
+            button5.Padding = new Padding(20, 0, 0, 0);
+            button5.Size = new Size(226, 73);
             button5.TabIndex = 3;
             button5.Text = "     Add Transaction";
             button5.TextAlign = ContentAlignment.MiddleLeft;
@@ -229,10 +222,10 @@
             // panel7
             // 
             panel7.Controls.Add(button6);
-            panel7.Location = new Point(0, 114);
+            panel7.Location = new Point(0, 86);
             panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
-            panel7.Size = new Size(229, 57);
+            panel7.Size = new Size(200, 43);
             panel7.TabIndex = 8;
             // 
             // button6
@@ -242,11 +235,10 @@
             button6.ForeColor = Color.White;
             button6.Image = (Image)resources.GetObject("button6.Image");
             button6.ImageAlign = ContentAlignment.MiddleLeft;
-            button6.Location = new Point(-14, -20);
-            button6.Margin = new Padding(3, 4, 3, 4);
+            button6.Location = new Point(-12, -15);
             button6.Name = "button6";
-            button6.Padding = new Padding(23, 0, 0, 0);
-            button6.Size = new Size(258, 97);
+            button6.Padding = new Padding(20, 0, 0, 0);
+            button6.Size = new Size(226, 73);
             button6.TabIndex = 3;
             button6.Text = "     Edit Transaction";
             button6.TextAlign = ContentAlignment.MiddleLeft;
@@ -256,10 +248,10 @@
             // panel8
             // 
             panel8.Controls.Add(button7);
-            panel8.Location = new Point(0, 171);
+            panel8.Location = new Point(0, 129);
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
-            panel8.Size = new Size(229, 57);
+            panel8.Size = new Size(200, 43);
             panel8.TabIndex = 9;
             // 
             // button7
@@ -269,11 +261,10 @@
             button7.ForeColor = Color.White;
             button7.Image = (Image)resources.GetObject("button7.Image");
             button7.ImageAlign = ContentAlignment.MiddleLeft;
-            button7.Location = new Point(-14, -20);
-            button7.Margin = new Padding(3, 4, 3, 4);
+            button7.Location = new Point(-12, -15);
             button7.Name = "button7";
-            button7.Padding = new Padding(23, 0, 0, 0);
-            button7.Size = new Size(258, 97);
+            button7.Padding = new Padding(20, 0, 0, 0);
+            button7.Size = new Size(226, 73);
             button7.TabIndex = 3;
             button7.Text = "     Categories";
             button7.TextAlign = ContentAlignment.MiddleLeft;
@@ -283,10 +274,9 @@
             // reportPanel
             // 
             reportPanel.Controls.Add(btnReport);
-            reportPanel.Location = new Point(3, 134);
-            reportPanel.Margin = new Padding(3, 4, 3, 4);
+            reportPanel.Location = new Point(3, 101);
             reportPanel.Name = "reportPanel";
-            reportPanel.Size = new Size(229, 57);
+            reportPanel.Size = new Size(200, 43);
             reportPanel.TabIndex = 4;
             // 
             // btnReport
@@ -296,23 +286,22 @@
             btnReport.ForeColor = Color.White;
             btnReport.Image = (Image)resources.GetObject("btnReport.Image");
             btnReport.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReport.Location = new Point(-14, -20);
-            btnReport.Margin = new Padding(3, 4, 3, 4);
+            btnReport.Location = new Point(-12, -15);
             btnReport.Name = "btnReport";
-            btnReport.Padding = new Padding(23, 0, 0, 0);
-            btnReport.Size = new Size(258, 97);
+            btnReport.Padding = new Padding(20, 0, 0, 0);
+            btnReport.Size = new Size(226, 73);
             btnReport.TabIndex = 3;
             btnReport.Text = "     Reports";
             btnReport.TextAlign = ContentAlignment.MiddleLeft;
             btnReport.UseVisualStyleBackColor = false;
+            btnReport.Click += btnReport_Click;
             // 
             // logoutPanel
             // 
             logoutPanel.Controls.Add(btnLogout);
-            logoutPanel.Location = new Point(3, 199);
-            logoutPanel.Margin = new Padding(3, 4, 3, 4);
+            logoutPanel.Location = new Point(3, 150);
             logoutPanel.Name = "logoutPanel";
-            logoutPanel.Size = new Size(229, 57);
+            logoutPanel.Size = new Size(200, 43);
             logoutPanel.TabIndex = 5;
             // 
             // btnLogout
@@ -322,15 +311,15 @@
             btnLogout.ForeColor = Color.White;
             btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogout.Location = new Point(-14, -20);
-            btnLogout.Margin = new Padding(3, 4, 3, 4);
+            btnLogout.Location = new Point(-12, -15);
             btnLogout.Name = "btnLogout";
-            btnLogout.Padding = new Padding(23, 0, 0, 0);
-            btnLogout.Size = new Size(258, 97);
+            btnLogout.Padding = new Padding(20, 0, 0, 0);
+            btnLogout.Size = new Size(226, 73);
             btnLogout.TabIndex = 3;
             btnLogout.Text = "     Logout";
             btnLogout.TextAlign = ContentAlignment.MiddleLeft;
             btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += logout_Click;
             // 
             // manageTransition
             // 
@@ -345,21 +334,21 @@
             // mainTransactions
             // 
             mainTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mainTransactions.Location = new Point(255, 119);
-            mainTransactions.Margin = new Padding(3, 4, 3, 4);
+            mainTransactions.Location = new Point(223, 89);
             mainTransactions.Name = "mainTransactions";
             mainTransactions.RowHeadersWidth = 51;
-            mainTransactions.Size = new Size(744, 465);
+            mainTransactions.Size = new Size(651, 349);
             mainTransactions.TabIndex = 2;
+            mainTransactions.CellContentClick += mainTransactions_CellContentClick;
             // 
             // purpleLabel1
             // 
             purpleLabel1.AutoSize = true;
             purpleLabel1.Font = new Font("Consolas", 14F, FontStyle.Bold);
             purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel1.Location = new Point(23, 76);
+            purpleLabel1.Location = new Point(20, 57);
             purpleLabel1.Name = "purpleLabel1";
-            purpleLabel1.Size = new Size(155, 28);
+            purpleLabel1.Size = new Size(120, 22);
             purpleLabel1.TabIndex = 3;
             purpleLabel1.Text = "Day Balance";
             // 
@@ -368,9 +357,9 @@
             purpleLabel2.AutoSize = true;
             purpleLabel2.Font = new Font("Consolas", 14F, FontStyle.Bold);
             purpleLabel2.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel2.Location = new Point(253, 76);
+            purpleLabel2.Location = new Point(221, 57);
             purpleLabel2.Name = "purpleLabel2";
-            purpleLabel2.Size = new Size(259, 28);
+            purpleLabel2.Size = new Size(200, 22);
             purpleLabel2.TabIndex = 4;
             purpleLabel2.Text = "Transaction History";
             // 
@@ -381,17 +370,17 @@
             DayBalance.Font = new Font("Consolas", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DayBalance.ForeColor = Color.FromArgb(149, 88, 225);
             DayBalance.Image = null;
-            DayBalance.Location = new Point(23, 128);
-            DayBalance.Margin = new Padding(3, 4, 3, 4);
+            DayBalance.Location = new Point(20, 96);
             DayBalance.MaxLength = 32767;
             DayBalance.Multiline = false;
             DayBalance.Name = "DayBalance";
             DayBalance.ReadOnly = false;
-            DayBalance.Size = new Size(169, 51);
+            DayBalance.Size = new Size(148, 46);
             DayBalance.TabIndex = 5;
             DayBalance.Text = "0,00";
             DayBalance.TextAlignment = HorizontalAlignment.Left;
             DayBalance.UseSystemPasswordChar = false;
+            DayBalance.TextChanged += DayBalance_TextChanged;
             // 
             // TotalBalance
             // 
@@ -400,36 +389,37 @@
             TotalBalance.Font = new Font("Consolas", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             TotalBalance.ForeColor = Color.FromArgb(149, 88, 225);
             TotalBalance.Image = null;
-            TotalBalance.Location = new Point(23, 242);
-            TotalBalance.Margin = new Padding(3, 4, 3, 4);
+            TotalBalance.Location = new Point(20, 182);
             TotalBalance.MaxLength = 32767;
             TotalBalance.Multiline = false;
             TotalBalance.Name = "TotalBalance";
             TotalBalance.ReadOnly = false;
-            TotalBalance.Size = new Size(169, 51);
+            TotalBalance.Size = new Size(148, 46);
             TotalBalance.TabIndex = 7;
             TotalBalance.Text = "0,00";
             TotalBalance.TextAlignment = HorizontalAlignment.Left;
             TotalBalance.UseSystemPasswordChar = false;
+            TotalBalance.TextChanged += TotalBalance_TextChanged;
             // 
             // purpleLabel3
             // 
             purpleLabel3.AutoSize = true;
             purpleLabel3.Font = new Font("Consolas", 14F, FontStyle.Bold);
             purpleLabel3.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel3.Location = new Point(23, 193);
+            purpleLabel3.Location = new Point(20, 145);
             purpleLabel3.Name = "purpleLabel3";
-            purpleLabel3.Size = new Size(181, 28);
+            purpleLabel3.Size = new Size(140, 22);
             purpleLabel3.TabIndex = 6;
             purpleLabel3.Text = "Total Balance";
             // 
             // dateTransaction
             // 
             dateTransaction.Format = DateTimePickerFormat.Custom;
-            dateTransaction.Location = new Point(23, 359);
-            dateTransaction.MinimumSize = new Size(0, 30);
+            dateTransaction.Location = new Point(20, 269);
+            dateTransaction.Margin = new Padding(3, 2, 3, 2);
+            dateTransaction.MinimumSize = new Size(0, 29);
             dateTransaction.Name = "dateTransaction";
-            dateTransaction.Size = new Size(169, 30);
+            dateTransaction.Size = new Size(148, 29);
             dateTransaction.TabIndex = 8;
             // 
             // findBtn
@@ -437,10 +427,9 @@
             findBtn.BackColor = Color.FromArgb(149, 88, 225);
             findBtn.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             findBtn.ForeColor = Color.Transparent;
-            findBtn.Location = new Point(23, 418);
-            findBtn.Margin = new Padding(3, 4, 3, 4);
+            findBtn.Location = new Point(20, 314);
             findBtn.Name = "findBtn";
-            findBtn.Size = new Size(175, 68);
+            findBtn.Size = new Size(153, 51);
             findBtn.TabIndex = 0;
             findBtn.Text = "Search";
             findBtn.UseVisualStyleBackColor = false;
@@ -451,17 +440,17 @@
             purpleLabel4.AutoSize = true;
             purpleLabel4.Font = new Font("Consolas", 14F, FontStyle.Bold);
             purpleLabel4.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel4.Location = new Point(23, 311);
+            purpleLabel4.Location = new Point(20, 233);
             purpleLabel4.Name = "purpleLabel4";
-            purpleLabel4.Size = new Size(64, 28);
+            purpleLabel4.Size = new Size(50, 22);
             purpleLabel4.TabIndex = 26;
             purpleLabel4.Text = "Date";
             // 
             // frmHome
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1026, 600);
+            ClientSize = new Size(898, 450);
             Controls.Add(purpleLabel4);
             Controls.Add(findBtn);
             Controls.Add(dateTransaction);
@@ -474,7 +463,6 @@
             Controls.Add(sidebarContainer);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "frmHome";
             Text = "Home";
             Load += frmHome_Load;
