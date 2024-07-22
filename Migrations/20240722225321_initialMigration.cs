@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace controlefinanceiro.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class initialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,7 +17,8 @@ namespace controlefinanceiro.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
+                    Nome = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    status = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -68,43 +69,6 @@ namespace controlefinanceiro.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Saldos",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
-                    TransacaoId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ValorSaldo = table.Column<decimal>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Saldos", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Saldos_Transacoes_TransacaoId",
-                        column: x => x.TransacaoId,
-                        principalTable: "Transacoes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Saldos_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Saldos_TransacaoId",
-                table: "Saldos",
-                column: "TransacaoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Saldos_UsuarioId",
-                table: "Saldos",
-                column: "UsuarioId");
-
             migrationBuilder.CreateIndex(
                 name: "IX_Transacoes_CategoriaId",
                 table: "Transacoes",
@@ -119,9 +83,6 @@ namespace controlefinanceiro.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Saldos");
-
             migrationBuilder.DropTable(
                 name: "Transacoes");
 
