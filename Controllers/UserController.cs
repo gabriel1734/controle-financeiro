@@ -87,5 +87,29 @@ namespace controlefinanceiro.Controllers
                 }
             }
         }
+        public static void setNewPassword(string password, string confirmPassword, Usuario user)
+        {
+            if (string.IsNullOrEmpty(confirmPassword) || string.IsNullOrEmpty(password))
+            {
+                throw new System.Exception("Password and Username are required!");
+            }
+
+            if (password != confirmPassword)
+            {
+                throw new System.Exception("Passwords do not match!");
+            }
+
+            if (!IsPasswordSecure(password))
+            {
+                throw new System.Exception("Password does not meet security requirements!");
+            }
+
+            user.Senha = Helpers.HashHelper.GetMd5Hash(password + "pao de batata");
+            using (AppDbContext db = new AppDbContext())
+            {
+                db.Usuarios.Update(user);
+                db.SaveChanges();
+            }
+        }
     }
 }

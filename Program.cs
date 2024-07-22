@@ -31,20 +31,14 @@ namespace controlefinanceiro
             }
 
 
-            /*if (!UsuarioController.CountIfExist())
-            {
-                
-            }
-            else
-            {
-                Application.Run(new frmLogin());
-            }*/
-
-            Application.Run(new frmRegister());
-
-
-
-
+            if (!UsuarioController.CountIfExist())
+             {
+                  Application.Run(new frmRegister());
+             }
+             else
+             {
+                 Application.Run(new frmLogin());
+             }
         }
     }
 }

@@ -78,22 +78,20 @@ namespace ControleFinanceiro.Controllers
                 {
                     var worksheet = package.Workbook.Worksheets.Add("Transacoes");
 
-                    worksheet.Cells[1, 1].Value = "Id";
-                    worksheet.Cells[1, 2].Value = "Data";
-                    worksheet.Cells[1, 3].Value = "Categoria";
-                    worksheet.Cells[1, 4].Value = "Descrição";
-                    worksheet.Cells[1, 5].Value = "Tipo";
-                    worksheet.Cells[1, 6].Value = "Valor";
+                    worksheet.Cells[1, 1].Value = "Data";
+                    worksheet.Cells[1, 2].Value = "Categoria";
+                    worksheet.Cells[1, 3].Value = "Descrição";
+                    worksheet.Cells[1, 4].Value = "Tipo";
+                    worksheet.Cells[1, 5].Value = "Valor";
 
                     int row = 2;
                     foreach (var transacao in transacoes)
                     {
-                        worksheet.Cells[row, 1].Value = transacao.Id;
-                        worksheet.Cells[row, 2].Value = transacao.Data.ToString("dd/MM/yyyy");
-                        worksheet.Cells[row, 3].Value = transacao.Categoria.Nome;
-                        worksheet.Cells[row, 4].Value = transacao.Descricao;
-                        worksheet.Cells[row, 5].Value = transacao.Tipo;
-                        worksheet.Cells[row, 6].Value = transacao.Valor;
+                        worksheet.Cells[row, 1].Value = transacao.Data.ToString("dd/MM/yyyy");
+                        worksheet.Cells[row, 2].Value = transacao.Categoria.Nome;
+                        worksheet.Cells[row, 3].Value = transacao.Descricao;
+                        worksheet.Cells[row, 4].Value = transacao.Tipo;
+                        worksheet.Cells[row, 5].Value = transacao.Valor;
                         row++;
                     }
 

@@ -61,7 +61,7 @@ namespace controlefinanceiro.Views
             dataExcel.Columns.Clear();
             dataExcel.Rows.Clear();
 
-            dataExcel.Columns.Add("Id", "ID");
+            
             dataExcel.Columns.Add("Categoria", "Categoria");
             dataExcel.Columns.Add("Valor", "Valor");
             dataExcel.Columns.Add("Data", "Data");
@@ -71,7 +71,6 @@ namespace controlefinanceiro.Views
             foreach (var transacao in transacoes)
             {
                 dataExcel.Rows.Add(
-                    transacao.Id,
                     transacao.Categoria.Nome,
                     transacao.Valor,
                     transacao.Data.ToString("dd/MM/yyyy"),
@@ -97,11 +96,10 @@ namespace controlefinanceiro.Views
 
             foreach (DataGridViewRow row in dataExcel.Rows)
             {
-                if (row.Cells["Id"].Value != null)
+                if (row.Cells["Categoria"].Value != null)
                 {
                     var transacao = new Transacao
                     {
-                        Id = Convert.ToInt32(row.Cells["Id"].Value),
                         Categoria = new Categoria { Nome = row.Cells["Categoria"].Value.ToString() },
                         Valor = Convert.ToDecimal(row.Cells["Valor"].Value),
                         Data = Convert.ToDateTime(row.Cells["Data"].Value),
