@@ -31,6 +31,7 @@ namespace controlefinanceiro.Views
             configureForm(user, tr);
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             if(idTransaction.Text == "")
@@ -56,6 +57,8 @@ namespace controlefinanceiro.Views
                     descriptionTransaction.Text,
                     typeTransaction.SelectedValue.ToString()
                 );
+                MessageBox.Show("Transaction Successfully Edited");
+                this.DialogResult = DialogResult.OK;
             }
         }
 

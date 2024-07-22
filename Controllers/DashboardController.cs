@@ -106,7 +106,7 @@ namespace ControleFinanceiro.Controllers
                 tr.Data = data;
                 tr.Descricao = descricao;
                 tr.Tipo = tipo;
-
+                db.Transacoes.Update(tr);
                 db.SaveChanges();
             }
         }
