@@ -38,9 +38,9 @@
             purpleLabel1.AutoSize = true;
             purpleLabel1.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel1.Location = new Point(14, 12);
+            purpleLabel1.Location = new Point(12, 9);
             purpleLabel1.Name = "purpleLabel1";
-            purpleLabel1.Size = new Size(54, 23);
+            purpleLabel1.Size = new Size(45, 19);
             purpleLabel1.TabIndex = 2;
             purpleLabel1.Text = "Name";
             // 
@@ -50,13 +50,12 @@
             categoria.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             categoria.ForeColor = Color.FromArgb(149, 88, 225);
             categoria.Image = null;
-            categoria.Location = new Point(72, 12);
-            categoria.Margin = new Padding(3, 4, 3, 4);
+            categoria.Location = new Point(63, 9);
             categoria.MaxLength = 32767;
             categoria.Multiline = false;
             categoria.Name = "categoria";
             categoria.ReadOnly = false;
-            categoria.Size = new Size(215, 45);
+            categoria.Size = new Size(188, 41);
             categoria.TabIndex = 7;
             categoria.TextAlignment = HorizontalAlignment.Left;
             categoria.UseSystemPasswordChar = false;
@@ -66,10 +65,9 @@
             btnAddNew.BackColor = Color.FromArgb(149, 88, 225);
             btnAddNew.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddNew.ForeColor = Color.White;
-            btnAddNew.Location = new Point(142, 75);
-            btnAddNew.Margin = new Padding(3, 4, 3, 4);
+            btnAddNew.Location = new Point(124, 56);
             btnAddNew.Name = "btnAddNew";
-            btnAddNew.Size = new Size(145, 56);
+            btnAddNew.Size = new Size(127, 42);
             btnAddNew.TabIndex = 24;
             btnAddNew.Text = "Add Category";
             btnAddNew.UseVisualStyleBackColor = false;
@@ -77,13 +75,14 @@
             // 
             // frmAddNewCat
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(297, 139);
+            ClientSize = new Size(260, 104);
             Controls.Add(btnAddNew);
             Controls.Add(categoria);
             Controls.Add(purpleLabel1);
-            Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(276, 143);
+            MinimumSize = new Size(276, 143);
             Name = "frmAddNewCat";
             Text = "frmAddNewCat";
             Load += frmAddNewCat_Load;

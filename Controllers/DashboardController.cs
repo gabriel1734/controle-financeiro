@@ -156,6 +156,22 @@ namespace ControleFinanceiro.Controllers
                 db.SaveChanges();
             }
         }
+        public static void RemoveTransaction(int id)
+        {
+            using (AppDbContext db = new AppDbContext())
+            {
+                Transacao transacao = db.Transacoes.Find(id);
+                if (transacao != null)
+                {
+                    db.Transacoes.Remove(transacao);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Transaction not found!");
+                }
+            }
+        }
 
         public static bool RemoverCategoria(int id)
         {

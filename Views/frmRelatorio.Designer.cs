@@ -204,6 +204,8 @@
             Controls.Add(categoria);
             Controls.Add(dataFim);
             Controls.Add(dataInicio);
+            MaximumSize = new Size(816, 489);
+            MinimumSize = new Size(816, 489);
             Name = "frmRelatorio";
             Text = "Movement Reports";
             ((System.ComponentModel.ISupportInitialize)dataExcel).EndInit();

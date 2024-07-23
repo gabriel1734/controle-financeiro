@@ -38,11 +38,10 @@
             // mainDataTransactions
             // 
             mainDataTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mainDataTransactions.Location = new Point(14, 88);
-            mainDataTransactions.Margin = new Padding(3, 4, 3, 4);
+            mainDataTransactions.Location = new Point(12, 66);
             mainDataTransactions.Name = "mainDataTransactions";
             mainDataTransactions.RowHeadersWidth = 51;
-            mainDataTransactions.Size = new Size(486, 268);
+            mainDataTransactions.Size = new Size(425, 201);
             mainDataTransactions.TabIndex = 0;
             mainDataTransactions.CellContentClick += mainDataTransactions_CellContentClick;
             mainDataTransactions.CellDoubleClick += mainDataTransactions_CellContentClick;
@@ -52,20 +51,19 @@
             purpleLabel1.AutoSize = true;
             purpleLabel1.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel1.Location = new Point(14, 12);
+            purpleLabel1.Location = new Point(12, 9);
             purpleLabel1.Name = "purpleLabel1";
-            purpleLabel1.Size = new Size(175, 23);
+            purpleLabel1.Size = new Size(144, 19);
             purpleLabel1.TabIndex = 1;
             purpleLabel1.Text = "Filter by Date:";
             // 
             // dateFilter
             // 
             dateFilter.Format = DateTimePickerFormat.Custom;
-            dateFilter.Location = new Point(14, 41);
-            dateFilter.Margin = new Padding(3, 4, 3, 4);
-            dateFilter.MinimumSize = new Size(0, 30);
+            dateFilter.Location = new Point(12, 31);
+            dateFilter.MinimumSize = new Size(0, 29);
             dateFilter.Name = "dateFilter";
-            dateFilter.Size = new Size(265, 30);
+            dateFilter.Size = new Size(232, 29);
             dateFilter.TabIndex = 21;
             // 
             // serchBtn
@@ -73,10 +71,9 @@
             serchBtn.BackColor = Color.FromArgb(149, 88, 225);
             serchBtn.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             serchBtn.ForeColor = Color.White;
-            serchBtn.Location = new Point(296, 37);
-            serchBtn.Margin = new Padding(3, 4, 3, 4);
+            serchBtn.Location = new Point(259, 28);
             serchBtn.Name = "serchBtn";
-            serchBtn.Size = new Size(204, 40);
+            serchBtn.Size = new Size(178, 30);
             serchBtn.TabIndex = 22;
             serchBtn.Text = "Filter";
             serchBtn.UseVisualStyleBackColor = false;
@@ -84,14 +81,15 @@
             // 
             // frmEditTransaction
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(527, 372);
+            ClientSize = new Size(461, 279);
             Controls.Add(serchBtn);
             Controls.Add(dateFilter);
             Controls.Add(purpleLabel1);
             Controls.Add(mainDataTransactions);
-            Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(477, 318);
+            MinimumSize = new Size(477, 318);
             Name = "frmEditTransaction";
             Text = "frmEditTransaction";
             Load += frmEditTransaction_Load;

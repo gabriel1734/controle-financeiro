@@ -50,9 +50,9 @@
             purpleLabel1.AutoSize = true;
             purpleLabel1.Font = new Font("Consolas", 14F, FontStyle.Bold);
             purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel1.Location = new Point(70, 225);
+            purpleLabel1.Location = new Point(61, 169);
             purpleLabel1.Name = "purpleLabel1";
-            purpleLabel1.Size = new Size(116, 28);
+            purpleLabel1.Size = new Size(90, 22);
             purpleLabel1.TabIndex = 15;
             purpleLabel1.Text = "Password";
             // 
@@ -62,9 +62,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Consolas", 14F, FontStyle.Bold);
             label2.ForeColor = Color.FromArgb(149, 88, 225);
-            label2.Location = new Point(70, 125);
+            label2.Location = new Point(61, 94);
             label2.Name = "label2";
-            label2.Size = new Size(116, 28);
+            label2.Size = new Size(90, 22);
             label2.TabIndex = 14;
             label2.Text = "Username";
             // 
@@ -74,10 +74,9 @@
             panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
             panel2.Controls.Add(txtPassword);
             panel2.ForeColor = Color.Transparent;
-            panel2.Location = new Point(70, 259);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(61, 194);
             panel2.Name = "panel2";
-            panel2.Size = new Size(217, 53);
+            panel2.Size = new Size(190, 40);
             panel2.TabIndex = 13;
             // 
             // txtPassword
@@ -85,10 +84,9 @@
             txtPassword.BorderStyle = BorderStyle.None;
             txtPassword.Font = new Font("Consolas", 9F, FontStyle.Bold);
             txtPassword.ForeColor = Color.FromArgb(149, 88, 225);
-            txtPassword.Location = new Point(10, 15);
-            txtPassword.Margin = new Padding(3, 4, 3, 4);
+            txtPassword.Location = new Point(9, 11);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(200, 18);
+            txtPassword.Size = new Size(175, 15);
             txtPassword.TabIndex = 5;
             // 
             // panel1
@@ -97,10 +95,9 @@
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.Controls.Add(txtUsername);
             panel1.ForeColor = Color.Transparent;
-            panel1.Location = new Point(70, 159);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(61, 119);
             panel1.Name = "panel1";
-            panel1.Size = new Size(217, 53);
+            panel1.Size = new Size(190, 40);
             panel1.TabIndex = 12;
             // 
             // txtUsername
@@ -108,10 +105,9 @@
             txtUsername.BorderStyle = BorderStyle.None;
             txtUsername.Font = new Font("Consolas", 9F, FontStyle.Bold);
             txtUsername.ForeColor = Color.FromArgb(149, 88, 225);
-            txtUsername.Location = new Point(10, 15);
-            txtUsername.Margin = new Padding(3, 4, 3, 4);
+            txtUsername.Location = new Point(9, 11);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(200, 18);
+            txtUsername.Size = new Size(175, 15);
             txtUsername.TabIndex = 5;
             // 
             // label1
@@ -120,9 +116,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Consolas", 32F, FontStyle.Bold);
             label1.ForeColor = Color.FromArgb(149, 88, 225);
-            label1.Location = new Point(56, 12);
+            label1.Location = new Point(49, 9);
             label1.Name = "label1";
-            label1.Size = new Size(267, 64);
+            label1.Size = new Size(214, 51);
             label1.TabIndex = 16;
             label1.Text = "Register";
             // 
@@ -131,9 +127,9 @@
             purpleLabel2.AutoSize = true;
             purpleLabel2.Font = new Font("Consolas", 14F, FontStyle.Bold);
             purpleLabel2.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel2.Location = new Point(70, 316);
+            purpleLabel2.Location = new Point(61, 237);
             purpleLabel2.Name = "purpleLabel2";
-            purpleLabel2.Size = new Size(220, 28);
+            purpleLabel2.Size = new Size(170, 22);
             purpleLabel2.TabIndex = 18;
             purpleLabel2.Text = "Confirm Password";
             // 
@@ -143,10 +139,9 @@
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.Controls.Add(txtConfirmPassword);
             panel3.ForeColor = Color.Transparent;
-            panel3.Location = new Point(70, 349);
-            panel3.Margin = new Padding(3, 4, 3, 4);
+            panel3.Location = new Point(61, 262);
             panel3.Name = "panel3";
-            panel3.Size = new Size(217, 53);
+            panel3.Size = new Size(190, 40);
             panel3.TabIndex = 17;
             // 
             // txtConfirmPassword
@@ -154,10 +149,9 @@
             txtConfirmPassword.BorderStyle = BorderStyle.None;
             txtConfirmPassword.Font = new Font("Consolas", 9F, FontStyle.Bold);
             txtConfirmPassword.ForeColor = Color.FromArgb(149, 88, 225);
-            txtConfirmPassword.Location = new Point(10, 15);
-            txtConfirmPassword.Margin = new Padding(3, 4, 3, 4);
+            txtConfirmPassword.Location = new Point(9, 11);
             txtConfirmPassword.Name = "txtConfirmPassword";
-            txtConfirmPassword.Size = new Size(200, 18);
+            txtConfirmPassword.Size = new Size(175, 15);
             txtConfirmPassword.TabIndex = 5;
             // 
             // btnLogin
@@ -169,14 +163,15 @@
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.ForeColor = Color.Transparent;
-            btnLogin.Location = new Point(115, 431);
-            btnLogin.Margin = new Padding(3, 4, 3, 4);
+            btnLogin.Location = new Point(101, 323);
+            btnLogin.MaximumSize = new Size(100, 100);
+            btnLogin.MinimumSize = new Size(100, 100);
             btnLogin.Name = "btnLogin";
             btnLogin.OnHoverBorderColor = Color.Transparent;
             btnLogin.OnHoverButtonColor = Color.Transparent;
             btnLogin.OnHoverTextColor = Color.Transparent;
             btnLogin.RightToLeft = RightToLeft.Yes;
-            btnLogin.Size = new Size(114, 133);
+            btnLogin.Size = new Size(100, 100);
             btnLogin.TabIndex = 19;
             btnLogin.TextAlign = ContentAlignment.BottomLeft;
             btnLogin.TextColor = Color.Transparent;
@@ -185,9 +180,9 @@
             // 
             // frmRegister
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(369, 600);
+            ClientSize = new Size(323, 450);
             Controls.Add(btnLogin);
             Controls.Add(purpleLabel2);
             Controls.Add(panel3);
@@ -196,7 +191,6 @@
             Controls.Add(label2);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "frmRegister";
             Text = "Cadastro";
             panel2.ResumeLayout(false);

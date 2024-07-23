@@ -1,6 +1,8 @@
 ﻿using controlefinanceiro.Models;
+
 using ControleFinanceiro.Controllers;
 using Microsoft.VisualBasic.ApplicationServices;
+using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +24,8 @@ namespace controlefinanceiro.Views
             InitializeComponent();
             configureDatePickers();
             configureForm(user);
+            valueTransaction.KeyPress += new KeyPressEventHandler(valueTransaction_KeyPress);
+            btnDeleteTransaction.Visible = false;
         }
 
         public frmAddTransaction(Models.Usuario user, Transacao tr)
@@ -29,36 +33,46 @@ namespace controlefinanceiro.Views
             InitializeComponent();
             configureDatePickers();
             configureForm(user, tr);
+            valueTransaction.KeyPress += new KeyPressEventHandler(valueTransaction_KeyPress);
+            btnDeleteTransaction.Visible = true;
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(idTransaction.Text == "")
+            try
             {
-                DashboardController.AdicionarTransacao(
-                    Convert.ToInt32(userID.Text),
-                    Convert.ToInt32(category.SelectedValue.ToString()),
-                    Convert.ToDecimal(valueTransaction.Text),
-                    DateTransaction.Value,
-                    descriptionTransaction.Text,
-                    typeTransaction.SelectedValue.ToString()
-                );
-                MessageBox.Show("Transaction Successfully Added");
-                this.DialogResult = DialogResult.OK;
-            } else
+                if (idTransaction.Text == "")
+                {
+                    DashboardController.AdicionarTransacao(
+                        Convert.ToInt32(userID.Text),
+                        Convert.ToInt32(category.SelectedValue.ToString()),
+                        Convert.ToDecimal(valueTransaction.Text),
+                        DateTransaction.Value,
+                        descriptionTransaction.Text,
+                        typeTransaction.SelectedValue.ToString()
+                    );
+                    MessageBox.Show("Transaction Successfully Added");
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    DashboardController.EditarTransacao(
+                        Convert.ToInt32(idTransaction.Text),
+                        Convert.ToInt32(userID.Text),
+                        Convert.ToInt32(category.SelectedValue.ToString()),
+                        Convert.ToDecimal(valueTransaction.Text),
+                        DateTransaction.Value,
+                        descriptionTransaction.Text,
+                        typeTransaction.SelectedValue.ToString()
+                    );
+                    MessageBox.Show("Transaction Successfully Edited");
+                    this.DialogResult = DialogResult.OK;
+                }
+            }
+            catch (Exception ex)
             {
-                DashboardController.EditarTransacao(
-                    Convert.ToInt32(idTransaction.Text),
-                    Convert.ToInt32(userID.Text),
-                    Convert.ToInt32(category.SelectedValue.ToString()),
-                    Convert.ToDecimal(valueTransaction.Text),
-                    DateTransaction.Value,
-                    descriptionTransaction.Text,
-                    typeTransaction.SelectedValue.ToString()
-                );
-                MessageBox.Show("Transaction Successfully Edited");
-                this.DialogResult = DialogResult.OK;
+                MessageBox.Show(ex.Message, "Invalid Value, verify and try again", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -93,7 +107,7 @@ namespace controlefinanceiro.Views
             List<string> tipos = new List<string> { "Entrada", "Saída" };
             typeTransaction.DataSource = tipos;
 
-            if(tr.Tipo == "Entrada")
+            if (tr.Tipo == "Entrada")
             {
                 typeTransaction.SelectedIndex = 0;
             }
@@ -121,35 +135,51 @@ namespace controlefinanceiro.Views
 
         private void valueTransaction_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '-')
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != ','))
             {
                 e.Handled = true;
+            }
 
 
-                if (e.KeyChar == '.' && textBox.Text.IndexOf('.') > -1)
-                {
-                    e.Handled = true;
-                }
-
-
-                if (e.KeyChar == '-' && textBox.SelectionStart != 0)
-                {
-                    e.Handled = true;
-                }
-
-
-                if (e.KeyChar == '-' && textBox.Text.Contains("-"))
-                {
-                    e.Handled = true;
-                }
+            if ((e.KeyChar == '.' || e.KeyChar == ',') && ((sender as BigTextBox).Text.IndexOf('.') > -1 || (sender as BigTextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
             }
         }
 
         private void idTransaction_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void valueTransaction_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteTransaction_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(idTransaction.Text))
+                {
+                    int transactionId = Convert.ToInt32(idTransaction.Text);
+                    DashboardController.RemoveTransaction(transactionId);
+                    MessageBox.Show("Transaction Successfully Deleted");
+                    this.DialogResult = DialogResult.OK;
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show("No transaction selected to delete.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

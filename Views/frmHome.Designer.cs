@@ -31,8 +31,10 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
             panel1 = new Panel();
+            profileContainer = new Panel();
+            lblUser = new Label();
+            btnProfile = new Button();
             nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
-            btnSidebar = new PictureBox();
             sidebarContainer = new FlowLayoutPanel();
             dboardPanel = new Panel();
             btnDboard = new Button();
@@ -47,21 +49,23 @@
             button7 = new Button();
             reportPanel = new Panel();
             btnReport = new Button();
+            panel2 = new Panel();
+            btnResetPassword = new Button();
             logoutPanel = new Panel();
             btnLogout = new Button();
             manageTransition = new System.Windows.Forms.Timer(components);
             sidebarTransition = new System.Windows.Forms.Timer(components);
             mainTransactions = new DataGridView();
-            purpleLabel1 = new MeusControles.PurpleLabel();
-            purpleLabel2 = new MeusControles.PurpleLabel();
             DayBalance = new ReaLTaiizor.Controls.BigTextBox();
             TotalBalance = new ReaLTaiizor.Controls.BigTextBox();
-            purpleLabel3 = new MeusControles.PurpleLabel();
             dateTransaction = new ReaLTaiizor.Controls.PoisonDateTime();
             findBtn = new Button();
-            purpleLabel4 = new MeusControles.PurpleLabel();
+            profileTransition = new System.Windows.Forms.Timer(components);
+            lblDayBalance = new Label();
+            lblTotalBalance = new Label();
+            lblDate = new Label();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)btnSidebar).BeginInit();
+            profileContainer.SuspendLayout();
             sidebarContainer.SuspendLayout();
             dboardPanel.SuspendLayout();
             manageContainer.SuspendLayout();
@@ -70,6 +74,7 @@
             panel7.SuspendLayout();
             panel8.SuspendLayout();
             reportPanel.SuspendLayout();
+            panel2.SuspendLayout();
             logoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)mainTransactions).BeginInit();
             SuspendLayout();
@@ -77,13 +82,50 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(149, 88, 225);
+            panel1.Controls.Add(profileContainer);
             panel1.Controls.Add(nightControlBox1);
-            panel1.Controls.Add(btnSidebar);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(898, 44);
             panel1.TabIndex = 0;
+            // 
+            // profileContainer
+            // 
+            profileContainer.Controls.Add(lblUser);
+            profileContainer.Controls.Add(btnProfile);
+            profileContainer.Location = new Point(9, 7);
+            profileContainer.Name = "profileContainer";
+            profileContainer.Size = new Size(200, 30);
+            profileContainer.TabIndex = 9;
+            // 
+            // lblUser
+            // 
+            lblUser.AutoSize = true;
+            lblUser.BackColor = Color.FromArgb(133, 64, 217);
+            lblUser.Font = new Font("Consolas", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUser.ForeColor = Color.White;
+            lblUser.Location = new Point(57, 8);
+            lblUser.Name = "lblUser";
+            lblUser.Size = new Size(0, 14);
+            lblUser.TabIndex = 9;
+            // 
+            // btnProfile
+            // 
+            btnProfile.BackColor = Color.Transparent;
+            btnProfile.Font = new Font("Consolas", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnProfile.ForeColor = Color.White;
+            btnProfile.Image = (Image)resources.GetObject("btnProfile.Image");
+            btnProfile.ImageAlign = ContentAlignment.MiddleLeft;
+            btnProfile.Location = new Point(-24, -21);
+            btnProfile.Name = "btnProfile";
+            btnProfile.Padding = new Padding(20, 0, 0, 0);
+            btnProfile.Size = new Size(226, 73);
+            btnProfile.TabIndex = 4;
+            btnProfile.Text = "     Hi";
+            btnProfile.TextAlign = ContentAlignment.MiddleLeft;
+            btnProfile.UseVisualStyleBackColor = false;
+            btnProfile.Click += button1_Click;
             // 
             // nightControlBox1
             // 
@@ -99,7 +141,7 @@
             nightControlBox1.EnableMaximizeColor = Color.White;
             nightControlBox1.EnableMinimizeButton = true;
             nightControlBox1.EnableMinimizeColor = Color.White;
-            nightControlBox1.Location = new Point(759, 0);
+            nightControlBox1.Location = new Point(1557, 0);
             nightControlBox1.MaximizeHoverColor = Color.FromArgb(15, 255, 255, 255);
             nightControlBox1.MaximizeHoverForeColor = Color.White;
             nightControlBox1.MinimizeHoverColor = Color.FromArgb(15, 255, 255, 255);
@@ -108,23 +150,13 @@
             nightControlBox1.Size = new Size(139, 31);
             nightControlBox1.TabIndex = 1;
             // 
-            // btnSidebar
-            // 
-            btnSidebar.Image = (Image)resources.GetObject("btnSidebar.Image");
-            btnSidebar.Location = new Point(3, 3);
-            btnSidebar.Name = "btnSidebar";
-            btnSidebar.Size = new Size(35, 35);
-            btnSidebar.SizeMode = PictureBoxSizeMode.CenterImage;
-            btnSidebar.TabIndex = 1;
-            btnSidebar.TabStop = false;
-            btnSidebar.Click += btnSidebar_Click;
-            // 
             // sidebarContainer
             // 
             sidebarContainer.BackColor = Color.FromArgb(149, 88, 225);
             sidebarContainer.Controls.Add(dboardPanel);
             sidebarContainer.Controls.Add(manageContainer);
             sidebarContainer.Controls.Add(reportPanel);
+            sidebarContainer.Controls.Add(panel2);
             sidebarContainer.Controls.Add(logoutPanel);
             sidebarContainer.Dock = DockStyle.Left;
             sidebarContainer.Location = new Point(0, 44);
@@ -296,10 +328,35 @@
             btnReport.UseVisualStyleBackColor = false;
             btnReport.Click += btnReport_Click;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(btnResetPassword);
+            panel2.Location = new Point(3, 150);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(200, 43);
+            panel2.TabIndex = 6;
+            // 
+            // btnResetPassword
+            // 
+            btnResetPassword.BackColor = Color.FromArgb(133, 64, 217);
+            btnResetPassword.Font = new Font("Consolas", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnResetPassword.ForeColor = Color.White;
+            btnResetPassword.Image = (Image)resources.GetObject("btnResetPassword.Image");
+            btnResetPassword.ImageAlign = ContentAlignment.MiddleLeft;
+            btnResetPassword.Location = new Point(-12, -15);
+            btnResetPassword.Name = "btnResetPassword";
+            btnResetPassword.Padding = new Padding(20, 0, 0, 0);
+            btnResetPassword.Size = new Size(226, 73);
+            btnResetPassword.TabIndex = 3;
+            btnResetPassword.Text = "     Reset Password";
+            btnResetPassword.TextAlign = ContentAlignment.MiddleLeft;
+            btnResetPassword.UseVisualStyleBackColor = false;
+            btnResetPassword.Click += btnResetPassword_Click;
+            // 
             // logoutPanel
             // 
             logoutPanel.Controls.Add(btnLogout);
-            logoutPanel.Location = new Point(3, 150);
+            logoutPanel.Location = new Point(3, 199);
             logoutPanel.Name = "logoutPanel";
             logoutPanel.Size = new Size(200, 43);
             logoutPanel.TabIndex = 5;
@@ -341,28 +398,6 @@
             mainTransactions.TabIndex = 2;
             mainTransactions.CellContentClick += mainTransactions_CellContentClick;
             // 
-            // purpleLabel1
-            // 
-            purpleLabel1.AutoSize = true;
-            purpleLabel1.Font = new Font("Consolas", 14F, FontStyle.Bold);
-            purpleLabel1.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel1.Location = new Point(20, 57);
-            purpleLabel1.Name = "purpleLabel1";
-            purpleLabel1.Size = new Size(120, 22);
-            purpleLabel1.TabIndex = 3;
-            purpleLabel1.Text = "Day Balance";
-            // 
-            // purpleLabel2
-            // 
-            purpleLabel2.AutoSize = true;
-            purpleLabel2.Font = new Font("Consolas", 14F, FontStyle.Bold);
-            purpleLabel2.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel2.Location = new Point(221, 57);
-            purpleLabel2.Name = "purpleLabel2";
-            purpleLabel2.Size = new Size(200, 22);
-            purpleLabel2.TabIndex = 4;
-            purpleLabel2.Text = "Transaction History";
-            // 
             // DayBalance
             // 
             DayBalance.BackColor = Color.Transparent;
@@ -401,17 +436,6 @@
             TotalBalance.UseSystemPasswordChar = false;
             TotalBalance.TextChanged += TotalBalance_TextChanged;
             // 
-            // purpleLabel3
-            // 
-            purpleLabel3.AutoSize = true;
-            purpleLabel3.Font = new Font("Consolas", 14F, FontStyle.Bold);
-            purpleLabel3.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel3.Location = new Point(20, 145);
-            purpleLabel3.Name = "purpleLabel3";
-            purpleLabel3.Size = new Size(140, 22);
-            purpleLabel3.TabIndex = 6;
-            purpleLabel3.Text = "Total Balance";
-            // 
             // dateTransaction
             // 
             dateTransaction.Format = DateTimePickerFormat.Custom;
@@ -435,39 +459,71 @@
             findBtn.UseVisualStyleBackColor = false;
             findBtn.Click += findBtn_Click;
             // 
-            // purpleLabel4
+            // profileTransition
             // 
-            purpleLabel4.AutoSize = true;
-            purpleLabel4.Font = new Font("Consolas", 14F, FontStyle.Bold);
-            purpleLabel4.ForeColor = Color.FromArgb(149, 88, 225);
-            purpleLabel4.Location = new Point(20, 233);
-            purpleLabel4.Name = "purpleLabel4";
-            purpleLabel4.Size = new Size(50, 22);
-            purpleLabel4.TabIndex = 26;
-            purpleLabel4.Text = "Date";
+            profileTransition.Interval = 1;
+            profileTransition.Tick += profileTransition_Tick;
+            // 
+            // lblDayBalance
+            // 
+            lblDayBalance.AutoSize = true;
+            lblDayBalance.BackColor = Color.Transparent;
+            lblDayBalance.Font = new Font("Consolas", 14F, FontStyle.Bold);
+            lblDayBalance.ForeColor = Color.FromArgb(149, 88, 225);
+            lblDayBalance.Location = new Point(20, 68);
+            lblDayBalance.Name = "lblDayBalance";
+            lblDayBalance.Size = new Size(120, 22);
+            lblDayBalance.TabIndex = 15;
+            lblDayBalance.Text = "Day Balance";
+            // 
+            // lblTotalBalance
+            // 
+            lblTotalBalance.AutoSize = true;
+            lblTotalBalance.BackColor = Color.Transparent;
+            lblTotalBalance.Font = new Font("Consolas", 14F, FontStyle.Bold);
+            lblTotalBalance.ForeColor = Color.FromArgb(149, 88, 225);
+            lblTotalBalance.Location = new Point(20, 154);
+            lblTotalBalance.Name = "lblTotalBalance";
+            lblTotalBalance.Size = new Size(140, 22);
+            lblTotalBalance.TabIndex = 16;
+            lblTotalBalance.Text = "Total Balance";
+            // 
+            // lblDate
+            // 
+            lblDate.AutoSize = true;
+            lblDate.BackColor = Color.Transparent;
+            lblDate.Font = new Font("Consolas", 14F, FontStyle.Bold);
+            lblDate.ForeColor = Color.FromArgb(149, 88, 225);
+            lblDate.Location = new Point(20, 243);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(50, 22);
+            lblDate.TabIndex = 17;
+            lblDate.Text = "Date";
             // 
             // frmHome
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(898, 450);
-            Controls.Add(purpleLabel4);
+            Controls.Add(lblDate);
+            Controls.Add(lblTotalBalance);
+            Controls.Add(lblDayBalance);
+            Controls.Add(sidebarContainer);
             Controls.Add(findBtn);
             Controls.Add(dateTransaction);
             Controls.Add(TotalBalance);
-            Controls.Add(purpleLabel3);
             Controls.Add(DayBalance);
-            Controls.Add(purpleLabel2);
-            Controls.Add(purpleLabel1);
             Controls.Add(mainTransactions);
-            Controls.Add(sidebarContainer);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            MaximumSize = new Size(898, 450);
+            MinimumSize = new Size(898, 450);
             Name = "frmHome";
             Text = "Home";
             Load += frmHome_Load;
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)btnSidebar).EndInit();
+            profileContainer.ResumeLayout(false);
+            profileContainer.PerformLayout();
             sidebarContainer.ResumeLayout(false);
             dboardPanel.ResumeLayout(false);
             manageContainer.ResumeLayout(false);
@@ -476,6 +532,7 @@
             panel7.ResumeLayout(false);
             panel8.ResumeLayout(false);
             reportPanel.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             logoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)mainTransactions).EndInit();
             ResumeLayout(false);
@@ -485,7 +542,6 @@
         #endregion
 
         private Panel panel1;
-        private PictureBox btnSidebar;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         private FlowLayoutPanel sidebarContainer;
         private Panel dboardPanel;
@@ -514,5 +570,14 @@
         private ReaLTaiizor.Controls.PoisonDateTime dateTransaction;
         private Button findBtn;
         private MeusControles.PurpleLabel purpleLabel4;
+        private Panel profileContainer;
+        private Button btnProfile;
+        private System.Windows.Forms.Timer profileTransition;
+        private Panel panel2;
+        private Button btnResetPassword;
+        private Label lblUser;
+        private Label lblDayBalance;
+        private Label lblTotalBalance;
+        private Label lblDate;
     }
 }

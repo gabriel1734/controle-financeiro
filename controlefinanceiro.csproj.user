@@ -10,9 +10,6 @@
     <Compile Update="Views\frmAddTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\frmAlterPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\frmCategories.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -35,6 +32,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\frmRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\frmRestPassword.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

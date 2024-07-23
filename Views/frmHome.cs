@@ -23,7 +23,11 @@ namespace controlefinanceiro.Views
             InitializeComponent();
             loadHome(DateTime.Now);
             this.user = user;
+            lblUser.Text = user.Username;
+            sidebarContainer.Width = 0;
+            profileContainer.Width = 30;
         }
+
         bool manageExpand = false;
 
         private void manageTransition_Tick(object sender, EventArgs e)
@@ -113,7 +117,7 @@ namespace controlefinanceiro.Views
 
         private void frmHome_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void loadHome(DateTime date)
@@ -166,6 +170,48 @@ namespace controlefinanceiro.Views
         }
 
         private void DayBalance_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            sidebarTransition.Start();
+            profileTransition.Start();
+        }
+
+        bool profileExpand = false;
+        private void profileTransition_Tick(object sender, EventArgs e)
+        {
+            profileContainer.BringToFront();
+            if (profileExpand == false)
+            {
+                profileContainer.Width += 10;
+                if (profileContainer.Width >= 180)
+                {
+                    profileTransition.Stop();
+
+                    profileExpand = true;
+                }
+            }
+            else
+            {
+                profileContainer.Width -= 10;
+                if (profileContainer.Width <= 30)
+                {
+                    profileTransition.Stop();
+                    profileExpand = false;
+                }
+            }
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            Views.frmResetPassword resetPass = new Views.frmResetPassword(user);
+            resetPass.Show();
+        }
+
+        private void lblUser_Click(object sender, EventArgs e)
         {
 
         }

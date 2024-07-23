@@ -42,6 +42,7 @@
             purpleLabel6 = new MeusControles.PurpleLabel();
             idTransaction = new ReaLTaiizor.Controls.BigTextBox();
             userID = new ReaLTaiizor.Controls.BigTextBox();
+            btnDeleteTransaction = new Button();
             SuspendLayout();
             // 
             // valueTransaction
@@ -60,6 +61,8 @@
             valueTransaction.Text = "0,00";
             valueTransaction.TextAlignment = HorizontalAlignment.Left;
             valueTransaction.UseSystemPasswordChar = false;
+            valueTransaction.TextChanged += valueTransaction_TextChanged;
+            valueTransaction.KeyPress += valueTransaction_KeyPress;
             // 
             // category
             // 
@@ -169,7 +172,7 @@
             DateTransaction.Location = new Point(128, 59);
             DateTransaction.MinimumSize = new Size(0, 29);
             DateTransaction.Name = "DateTransaction";
-            DateTransaction.Size = new Size(100, 30);
+            DateTransaction.Size = new Size(100, 29);
             DateTransaction.TabIndex = 20;
             // 
             // button1
@@ -235,11 +238,25 @@
             userID.UseSystemPasswordChar = false;
             userID.Visible = false;
             // 
+            // btnDeleteTransaction
+            // 
+            btnDeleteTransaction.BackColor = Color.FromArgb(192, 0, 0);
+            btnDeleteTransaction.Font = new Font("Consolas", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeleteTransaction.ForeColor = Color.White;
+            btnDeleteTransaction.Location = new Point(107, 402);
+            btnDeleteTransaction.Name = "btnDeleteTransaction";
+            btnDeleteTransaction.Size = new Size(183, 42);
+            btnDeleteTransaction.TabIndex = 27;
+            btnDeleteTransaction.Text = "Delete Transaction";
+            btnDeleteTransaction.UseVisualStyleBackColor = false;
+            btnDeleteTransaction.Click += btnDeleteTransaction_Click;
+            // 
             // frmAddTransaction
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(391, 408);
+            ClientSize = new Size(391, 454);
+            Controls.Add(btnDeleteTransaction);
             Controls.Add(userID);
             Controls.Add(purpleLabel6);
             Controls.Add(idTransaction);
@@ -254,6 +271,8 @@
             Controls.Add(descriptionTransaction);
             Controls.Add(category);
             Controls.Add(valueTransaction);
+            MaximumSize = new Size(407, 493);
+            MinimumSize = new Size(407, 493);
             Name = "frmAddTransaction";
             Text = "frmAddTransaction";
             ResumeLayout(false);
@@ -261,7 +280,6 @@
         }
 
         #endregion
-        private ReaLTaiizor.Controls.BigTextBox valueTransaction;
         private ReaLTaiizor.Controls.HopeComboBox category;
         private ReaLTaiizor.Controls.HopeRichTextBox descriptionTransaction;
         private ReaLTaiizor.Controls.HopeComboBox typeTransaction;
@@ -275,5 +293,7 @@
         private MeusControles.PurpleLabel purpleLabel6;
         private ReaLTaiizor.Controls.BigTextBox idTransaction;
         private ReaLTaiizor.Controls.BigTextBox userID;
+        public ReaLTaiizor.Controls.BigTextBox valueTransaction;
+        private Button btnDeleteTransaction;
     }
 }
