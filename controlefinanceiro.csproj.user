@@ -37,6 +37,9 @@
     <Compile Update="Views\frmRelatorio.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\frmRestPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Views\frmRegister.resx">
